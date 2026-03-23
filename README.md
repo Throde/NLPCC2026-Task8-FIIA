@@ -173,18 +173,18 @@ Where $F$ is the number of verb categories, and $MIS_j$ is the score of valid su
 
 This shared task is jointly organized by Huazhong University of Science and Technology, University of Macau, and Nanjing Normal University.
 
-* **Daohuan Liu** | [cite_start]Huazhong University of Science and Technology (Contact) liudh@hust.edu.cn [cite: 6]
-* **Xuri Tang** | [cite_start]Huazhong University of Science and Technology (Organizer) xrtang@hust.edu.cn [cite: 5]
-* **Yulin Yuan** | [cite_start]University of Macau (Organizer) yulinyuan@um.edu.mo [cite: 5]
-* **Bin Li** | [cite_start]Nanjing Normal University (Organizer) [cite: 5]
-* **Guanliang Cong** | [cite_start]University of Macau [cite: 7]
-* **Junchao Wu** | [cite_start]University of Macau [cite: 7]
-* **Liwei Zhou** | [cite_start]University of Macau [cite: 7]
-* **Tianqi Xun** | [cite_start]University of Macau [cite: 7]
-* **Yang Chen** | [cite_start]University of Macau [cite: 7]
-* **Mai Xu** | [cite_start]University of Macau [cite: 7]
-* **Jiaoyang Su** | [cite_start]Huazhong University of Science and Technology [cite: 7]
-* **Yu'er Wang** | [cite_start]Huazhong University of Science and Technology [cite: 7]
-* **Zehua Li** | [cite_start]University of Macau [cite: 7]
-* **Yueyao Wang** | [cite_start]University of Macau [cite: 7]
-* **Changling Li** | [cite_start]University of Macau [cite: 7]
+* **Daohuan Liu** | Huazhong University of Science and Technology (Contact) liudh@hust.edu.cn
+* **Xuri Tang** | Huazhong University of Science and Technology (Organizer) xrtang@hust.edu.cn
+* **Yulin Yuan** | University of Macau (Organizer) yulinyuan@um.edu.mo
+* **Bin Li** | Nanjing Normal University (Organizer)
+* **Guanliang Cong** | University of Macau
+* **Junchao Wu** | University of Macau
+* **Liwei Zhou** | University of Macau
+* **Tianqi Xun** | University of Macau
+* **Yang Chen** | University of Macau
+* **Mai Xu** | University of Macau
+* **Jiaoyang Su** | Huazhong University of Science and Technology
+* **Yu'er Wang** | Huazhong University of Science and Technology
+* **Zehua Li** | University of Macau
+* **Yueyao Wang** | University of Macau
+* **Changling Li** | University of Macau
