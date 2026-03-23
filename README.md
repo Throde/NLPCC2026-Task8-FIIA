@@ -160,3 +160,23 @@ The evaluation backend will calculate the MIS score for each category separately
 $$Weighted\_MIS=\frac{1}{F}\sum_{j=1}^{F}MIS_j$$
 
 Where $F$ is the number of verb categories, and $MIS_j$ is the score of valid submitted samples under the $j$-th category of words. The final ranking basis is the Weighted-MIS.
+
+## Organizer
+
+This shared task is jointly organized by Huazhong University of Science and Technology, University of Macau, and Nanjing Normal University.
+
+* **Daohuan Liu** | [cite_start]Huazhong University of Science and Technology (Contact) liudh@hust.edu.cn [cite: 6]
+* **Xuri Tang** | [cite_start]Huazhong University of Science and Technology (Organizer) xrtang@hust.edu.cn [cite: 5]
+* **Yulin Yuan** | [cite_start]University of Macau (Organizer) yulinyuan@um.edu.mo [cite: 5]
+* **Bin Li** | [cite_start]Nanjing Normal University (Organizer) [cite: 5]
+* **Guanliang Cong** | [cite_start]University of Macau [cite: 7]
+* **Junchao Wu** | [cite_start]University of Macau [cite: 7]
+* **Liwei Zhou** | [cite_start]University of Macau [cite: 7]
+* **Tianqi Xun** | [cite_start]University of Macau [cite: 7]
+* **Yang Chen** | [cite_start]University of Macau [cite: 7]
+* **Mai Xu** | [cite_start]University of Macau [cite: 7]
+* **Jiaoyang Su** | [cite_start]Huazhong University of Science and Technology [cite: 7]
+* **Yu'er Wang** | [cite_start]Huazhong University of Science and Technology [cite: 7]
+* **Zehua Li** | [cite_start]University of Macau [cite: 7]
+* **Yueyao Wang** | [cite_start]University of Macau [cite: 7]
+* **Changling Li** | [cite_start]University of Macau [cite: 7]
