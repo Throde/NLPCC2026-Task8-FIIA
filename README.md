@@ -1,5 +1,13 @@
 # NLPCC2026-Task8: Factivity Inference Inconsistency Attack (FIIA)
 
+## Registration
+
+Participants may register through either of the following channels:
+1. Submit the online registration form via: [Link Placeholder]
+2. Complete the registration document (.docx) and submit it via email to liudh@hust.edu.cn.
+
+Should you have any questions, please feel free to contact us at: liudh@hust.edu.cn.
+
 ## 1. Introduction
 
 Factivity Inference (FI) is a semantic understanding task related to judging the truthfulness of events, primarily involving the expression of factual information in language use. In human conversational communication, factivity inference capability mainly manifests as language users being able to infer the truthfulness (true or false) of events described by other linguistic components based on the use of certain verbal linguistic components (e.g., “相信” (believe), “谎称” (falsely claim), “意识到” (realize)). For example:
