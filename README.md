@@ -7,7 +7,7 @@
 
 # NLPCC2026-Task8: Factivity Inference Inconsistency Attack (FIIA)
 
-## Registration
+# Registration
 
 Participants may register through either of the following channels:
 1. Submit the online registration form via: [Link Placeholder]
@@ -15,7 +15,7 @@ Participants may register through either of the following channels:
 
 Should you have any questions, please feel free to contact us at: liudh@hust.edu.cn.
 
-## 1. Introduction
+# Task Introduction
 
 Factivity Inference (FI) is a semantic understanding task related to judging the truthfulness of events, primarily involving the expression of factual information in language use. In human conversational communication, factivity inference capability mainly manifests as language users being able to infer the truthfulness (true or false) of events described by other linguistic components based on the use of certain verbal linguistic components (e.g., “相信” (believe), “谎称” (falsely claim), “意识到” (realize)). For example:
 
@@ -33,19 +33,19 @@ Comparative analysis of the two sentences in Example 2 reveals that only a minor
 
 Therefore, this evaluation task adopts a Red Teaming attack mode, aiming to systematically investigate and expose the feature boundaries and fragile scenarios of current large models in complex factivity inference tasks. Participating teams are required to creatively adapt the original corpus based on the Chinese factivity inference dataset provided by the organizers, under specified large models, prompt words, and other environmental configurations. The goal is to mine key text features that can induce large models to generate "hallucinations" or lead to a collapse in consistency, thereby providing a scientific basis for evaluating and improving the logical robustness of models in complex language interactions.
 
-## 2. Dataset and Usage Instructions 
+# Dataset and Usage Instructions 
 
-### 2.1 Data Scale and Source
+## Data Scale and Source
 The foundational corpus for this evaluation is provided by the team from the University of Macau. The corpus is primarily filtered from relevant Chinese corpora and has been manually annotated and proofread by the evaluation organizers. The evaluation set is expected to contain 1,000 data items, covering approximately 300 Chinese factive predicates. The dataset used for the evaluation is published in JSON format, serving as the basis for text adaptation by participating teams. Since the evaluation mode is a red teaming attack, it is not divided into training, validation, and test sets.
 
-### 2.2 Test Set Data Fields
+## Test Set Data Fields
 * **`id`**: Refers to the data number in the dataset released by the organizers.
 * **`predicate`**: Refers to the factive predicate, which is the core linguistic component for factivity inference. Most predicates are verbs, while a few are adjectives. During attack testing, modifying the content of this field within the "text" is prohibited.
 * **`text_original`**: Background sentence (main entailing sentence). This field provides the context required for inference, and the model needs to rely on the content of this field to judge the truth value of the "hypothesis" field.
 * **`hypothesis`**: Conclusion sentence (entailed sentence). This field provides the discriminative sentence required for factivity inference, and the model needs to use the content of the "text" field to judge the truth value of this field. During attack testing, modifying the content of this field within the "text" is prohibited.
 * **`option`**: This field reflects the possible answer situations of the model and contains 4 keys. "T" indicates that according to the background sentence, the conclusion sentence is true. "F" indicates that according to the background sentence, the conclusion sentence is false. "U" indicates that according to the background sentence, the truth value of the conclusion sentence cannot be determined. "R" indicates that the model refuses to answer.
 
-### 2.3 Test Set Data Example
+## Test Set Data Example
 ```json
 [ {
   "id": "0001",
@@ -67,7 +67,7 @@ The foundational corpus for this evaluation is provided by the team from the Uni
 * hypothesis: "西部大开发需要资金和技术。" (The Western Development requires capital and technology.)
 * option: "真" (True), "假" (False), "不能确定" (Uncertain), "模型拒绝回答" (Model refuses to answer).
 
-### 3.4 Attack Methods and Specifications
+## Attack Methods and Specifications
 
 Participating teams must modify the content of the `text_original` field to minimize the self-consistency rate of the large model's inference results as much as possible. When adapting `text_original`, the contents corresponding to the `predicate` and `hypothesis` fields must be kept intact and undamaged.
 
@@ -79,11 +79,11 @@ Modifications should focus on linguistic syntactic or semantic categories, rathe
 
 To ensure compliance, we will implement a "Sample Validity Admission" check during the final evaluation phase; non-compliant samples will be considered invalid and will not be scored.
 
-### 3.5 Evaluation Operations and Specifications
+## Evaluation Operations and Specifications
 
 Participating teams are required to conduct independent Multi-turn Prompting to the models via API. They must ask the model to judge the truth value of the `hypothesis` field based on the value of the `text` field, record the model's return results (T/F/U), and self-check its self-consistency rate. The selection range of models, prompt templates, and other evaluation-related environmental parameters are uniformly specified by the task organizers.
 
-#### (1) Optional Model Range
+### (1) Optional Model Range
 To comprehensively and fairly evaluate the effectiveness of the attack strategies, this evaluation sets up two parallel independent tracks. The specific versions of the tested models for each track are uniquely designated by the organizers:
 
 | Model Series | Track Name | Specific Model (API Node) |
@@ -96,7 +96,7 @@ Selecting the Qwen and DeepSeek series as test baselines is primarily based on t
 2.  They represent two mainstream and distinctly different technological routes in the current evolution of large models, possessing strong sample representativeness.
 3.  They both provide open-source weight versions, offering an academically friendly open-source ecosystem and white-box replication potential.
 
-#### (2) Prompt Template
+### (2) Prompt Template
 ```text
 根据“文本”的内容，判断“假设”的真值情况：
 文本：{text}
@@ -116,7 +116,7 @@ The result returned by the model should be a single letter, and only one value i
 * If the truth or falsity of the hypothesis cannot be determined based on the text, it must output "U".
 * If the model refuses to answer, or if the returned text does not meet the above answer specifications, the output will be forcibly marked as "R". This is an invalid answer and is not included in the final consistency rate calculation. Teams should avoid this situation during adaptation and testing.
 
-### 3.6 Submission Requirements
+## Submission Requirements
 Participating teams must organize the adapted items to be submitted into a JSON format output file. Each data entry in the output file should contain four fields: id, text_attack, response_original, and response_attack. For example:
 
 ```json
@@ -140,11 +140,11 @@ For example, if a team actually adapted 326 items and submitted all 326 items to
 
 In addition, all resources used by the participating teams need to be detailed in the final submitted technical report. All code and results from the experiments must be properly saved for future reference.
 
-## 4. Evaluation Criteria
+# Evaluation Criteria
 
 Since the evaluation mode is a red teaming attack, this task evaluates performance by measuring the "attack success rate" (Weighted-MIS). The overall calculation process is divided into three steps: "Validity Check", "Basic Inconsistency Rate Calculation", and "Multi-class Weighting".
 
-### 4.1 Attack Sample Validity Admission Mechanism (Validity and Fluency Check)
+## Attack Sample Validity Admission Mechanism (Validity and Fluency Check)
 
 To prevent participating teams from inducing unstable model outputs through cheating methods such as inputting meaningless characters or destroying syntactic structures, this evaluation implements a "validity admission" mechanism for attack samples. All submitted adapted items must pass the following three automated checks before entering the scoring phase:
 
@@ -156,7 +156,7 @@ To prevent participating teams from inducing unstable model outputs through chea
 
 After receiving a submission, the evaluation system will first run the above three admission checks. If there is invalid data in the sample set, the system will reject the submission and return the data IDs (`d_id`) of the invalid samples. The leaderboard system will ultimately only calculate scores for valid sample sets that pass the validity admission.
 
-### 4.2 Multi-turn Inconsistency Score (MIS)
+## Multi-turn Inconsistency Score (MIS)
 
 This metric is the basic scoring module, used to calculate the degree of answer dispersion for a single item and a specific set. The calculation formula is:
 
@@ -166,7 +166,7 @@ Where $N$ is the total number of valid attack items submitted by the participati
 
 Assuming a total of 10 calls are made for a certain item, and the model's reply distribution is 6 T's, 3 F's, and 1 U. Then the count of the highest frequency answer $\max(c_i) = 6$, so the self-consistency rate of the item is 0.6, and its inconsistency rate is 0.4. A higher MIS score indicates that the submitted attack samples trigger a higher inconsistency rate, meaning the attack is more successful.
 
-### 4.3 Multi-class Weighted Score (Weighted-MIS)
+## Multi-class Weighted Score (Weighted-MIS)
 
 Factivity inference capabilities show significant differences across different types of verbs (such as cognitive verbs, speech verbs, evaluative verbs, etc.). To prevent participating teams from stacking data and overfitting scores on a few highly vulnerable words (such as "抱怨" / complain), we further introduce a weighting mechanism based on the classification of factive verbs. This rewards participating teams for designing attack strategies that cover as many verb types as possible and possess broad linguistic generalization capabilities.
 
@@ -176,7 +176,7 @@ $$Weighted\_MIS=\frac{1}{F}\sum_{j=1}^{F}MIS_j$$
 
 Where $F$ is the number of verb categories, and $MIS_j$ is the score of valid submitted samples under the $j$-th category of words. The final ranking basis is the Weighted-MIS.
 
-## Organizer
+# Organizer
 
 This shared task is jointly organized by Huazhong University of Science and Technology, University of Macau, and Nanjing Normal University.
 
@@ -195,3 +195,35 @@ This shared task is jointly organized by Huazhong University of Science and Tech
 * **Zehua Li** | University of Macau
 * **Yueyao Wang** | University of Macau
 * **Changling Li** | University of Macau
+
+# References
+
+If you're new to this field, we believe the following papers can help you quickly get familiar with it (continuously updated):
+
+[1]陈振宇 & 姜毅宁.(2018).事实性与叙实性——通向直陈世界的晦暗与透明. 语言研究集刊(01),15-37+372-373. doi:CNKI:SUN:YJJK.0.2018-01-002.
+
+[2]袁毓林.(2014).隐性否定动词的叙实性和极项允准功能. 语言科学(06),575-586. doi:CNKI:SUN:YYKE.0.2014-06-002.
+
+[3]袁毓林.(2020).“忘记”类动词的叙实性漂移及其概念结构基础. 中国语文(05),515-526+638. doi:CNKI:SUN:YWZG.0.2020-05-001.
+
+[4]袁毓林.(2020).叙实性和事实性：语言推理的两种导航机制. 语文研究(01),1-9. doi:CNKI:SUN:YWYJ.0.2020-01-001.
+
+[5]袁毓林.(2020).“记得”的叙实性漂移及其概念结构基础. 语言教学与研究(01),36-47. doi:CNKI:SUN:YYJX.0.2020-01-007.
+
+[6]袁毓林.(2021).从语言的“多声性”看“假装”句的解读歧异. 语言战略研究(05),77-90. doi:10.19689/j.cnki.cn10-1361/h.20210506.
+
+[7]张帆.(2024).“假装”类动词宾语的类型及其真值判定理据. 中国语言学报(00),157-170. doi:CNKI:SUN:XBYT.0.2024-00-012.
+
+[8]李新良.(2018).“感觉”类动词的叙实性及其漂移问题研究. 语言教学与研究(05),65-75. doi:CNKI:SUN:YYJX.0.2018-05-007.
+
+[9]李新良.(2020). 现代汉语动词的叙实性研究. 北京: 北京大学出版社.
+
+[10]李新良 & 袁毓林.(2016).反叙实动词宾语真假的语法条件及其概念动因. 当代语言学(02),194-215. doi:CNKI:SUN:DDYX.0.2016-02-004.
+
+[11]李新良 & 袁毓林.(2017).“知道”的叙实性及其置信度变异的语法环境. 中国语文(01),42-52+127. doi:CNKI:SUN:YWZG.0.2017-01-003.
+
+[12]李新良、袁毓林等.(2023). 叙实性与事实性理论及其运用. 北京: 外语教学与研究出版社.
+
+[13]Kiparsky & Kiparsky. (1970). Fact. In M. Bierwisch & K. Heidolph (eds.). Progress in Linguistics. The Hague: Mouton. 143-147.
+
+[14]袁毓林 (2023).“X不敢相信Y”构式的叙实性逆转功能与魔术效应——表示‘当事实颠覆信念之后不情愿地悬置不信任’的心理经验. 中国语文(04),387-399+510.
