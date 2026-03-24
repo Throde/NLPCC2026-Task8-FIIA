@@ -11,7 +11,7 @@
 # Registration
 
 Participants may register through either of the following channels:
-1. Submit the online registration form via: [https://alidocs.dingtalk.com/notable/share/form/v01r4mlQ5b53rJmNlxo_dv19yqvsgs3oebp3pcjys_1qX0QQ0]
+1. Submit the online registration form via: [https://alidocs.dingtalk.com/notable/share/form/v012M9qP5j5D8A1JO01_FSwM4Z8_xbMCeFp]
 2. Complete the registration document (.docx) and submit it via email to liudh@hust.edu.cn.
 
 Should you have any questions, please feel free to contact us at: liudh@hust.edu.cn.
