@@ -1,7 +1,13 @@
 <p align="center">
-  <img src="badge/ccl2026.png" height="45">
-  <img src="badge/UM & FAH.png" height="45">
-  <img src="badge/HUST.png" height="45">
+  <a href="http://tcci.ccf.org.cn/conference/2026/">
+    <img src="badge/NLPCC2026_B.png" height="45">
+  </a>
+  <a href="https://sfl.hust.edu.cn/">
+    <img src="badge/HUST.png" height="45">
+  </a>
+  <a href="">
+    <img src="badge/UM & FAH.png" height="45">
+  </a>
 </p>
 
 
