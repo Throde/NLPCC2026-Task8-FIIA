@@ -146,7 +146,7 @@ The adapted background sentence (`text_attacked`) must completely retain the two
 
 To ensure that the attack samples only undergo minor perturbations based on the original context rather than being rewritten on a large scale, the system will calculate the text similarity between the adapted sentence and the original sentence. This check uses the character-level Levenshtein Ratio to quantify the extent of text modification (including addition, deletion, and modification operations):
 
-    $$Ratio(A,B)=\frac{|A|+|B|-L(A,B)}{|A|+|B|}$$
+$$Ratio(A,B)=\frac{|A|+|B|-L(A,B)}{|A|+|B|}$$
     
 Taking the adaptation of original sentence A "他知道局面已经不可挽回" (He knows that the situation is irreversible) to sentence B "他不知道局面已经不可挽回" (He does not know that the situation is irreversible) as an example, the modification operation only inserts one character "不" (not), so the edit distance $L(A,B)=1$. This results in $Ratio(A,B) = (11+12-1)/(11+12) = 22/23 \approx 0.957$. We require that the modification ratio must not exceed 40% (i.e., $Ratio \geq 0.6$). If it is below this threshold, it indicates that the modification is too extensive and deviates from the constraints of the original item, and the sample will be directly judged as invalid.
 
