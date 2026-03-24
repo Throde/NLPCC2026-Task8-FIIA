@@ -38,13 +38,6 @@ Therefore, this evaluation task adopts a Red Teaming attack mode, aiming to syst
 ## Data Scale and Source
 The foundational corpus for this evaluation is provided by the team from the University of Macau. The corpus is primarily filtered from relevant Chinese corpora and has been manually annotated and proofread by the evaluation organizers. The evaluation set is expected to contain 1,000 data items, covering approximately 300 Chinese factive predicates. The dataset used for the evaluation is published in JSON format, serving as the basis for text adaptation by participating teams. Since the evaluation mode is a red teaming attack, it is not divided into training, validation, and test sets.
 
-## Test Set Data Fields
-* **`id`**: Refers to the data number in the dataset released by the organizers.
-* **`predicate`**: Refers to the factive predicate, which is the core linguistic component for factivity inference. Most predicates are verbs, while a few are adjectives. During attack testing, modifying the content of this field within the "text" is prohibited.
-* **`text_original`**: Background sentence (main entailing sentence). This field provides the context required for inference, and the model needs to rely on the content of this field to judge the truth value of the "hypothesis" field.
-* **`hypothesis`**: Conclusion sentence (entailed sentence). This field provides the discriminative sentence required for factivity inference, and the model needs to use the content of the "text" field to judge the truth value of this field. During attack testing, modifying the content of this field within the "text" is prohibited.
-* **`option`**: This field reflects the possible answer situations of the model and contains 4 keys. "T" indicates that according to the background sentence, the conclusion sentence is true. "F" indicates that according to the background sentence, the conclusion sentence is false. "U" indicates that according to the background sentence, the truth value of the conclusion sentence cannot be determined. "R" indicates that the model refuses to answer.
-
 ## Test Set Data Example
 ```json
 [ {
@@ -61,11 +54,11 @@ The foundational corpus for this evaluation is provided by the team from the Uni
 } ]
 ```
 
-(English Reference for Example Content)
-* predicate: "知道" (know)
-* text_original: "人们都知道西部大开发需要资金和技术，但是负责人指出，从根本来看更需要知识和人才。" (Everyone knows that the Western Development requires capital and technology, but the person in charge pointed out that fundamentally, knowledge and talent are needed more.)
-* hypothesis: "西部大开发需要资金和技术。" (The Western Development requires capital and technology.)
-* option: "真" (True), "假" (False), "不能确定" (Uncertain), "模型拒绝回答" (Model refuses to answer).
+* **`id`**: Refers to the data number in the dataset released by the organizers.
+* **`predicate`**: Refers to the factive predicate, which is the core linguistic component for factivity inference. Most predicates are verbs, while a few are adjectives. During attack testing, modifying the content of this field within the "text" is prohibited.
+* **`text_original`**: Background sentence (main entailing sentence). This field provides the context required for inference, and the model needs to rely on the content of this field to judge the truth value of the "hypothesis" field.
+* **`hypothesis`**: Conclusion sentence (entailed sentence). This field provides the discriminative sentence required for factivity inference, and the model needs to use the content of the "text" field to judge the truth value of this field. During attack testing, modifying the content of this field within the "text" is prohibited.
+* **`option`**: This field reflects the possible answer situations of the model and contains 4 keys. "T" indicates that according to the background sentence, the conclusion sentence is true. "F" indicates that according to the background sentence, the conclusion sentence is false. "U" indicates that according to the background sentence, the truth value of the conclusion sentence cannot be determined. "R" indicates that the model refuses to answer.
 
 ## Attack Methods and Specifications
 
@@ -105,10 +98,10 @@ Selecting the Qwen and DeepSeek series as test baselines is primarily based on t
 ```
 (English Reference: Based on the content of the "text", determine the truth value of the "hypothesis": Text: {text} Hypothesis: {hypothesis} Only T/F/U (corresponding to True/False/Uncertain) are allowed as responses; any other explanatory content is prohibited.)
 
-(3) Parameter Configuration
+### (3) Parameter Configuration
 To restore the ecological validity of large models in practical applications, parameters such as Temperature are set to the official recommended or default values for each model series. Participating teams are not allowed to modify them.
 
-(4) Model Output Processing
+### (4) Model Output Processing
 The result returned by the model should be a single letter, and only one value is permitted:
 
 * If the hypothesis is judged to be true based on the text, it must output "T".
@@ -130,8 +123,6 @@ Participating teams must organize the adapted items to be submitted into a JSON 
 ]
 ```
 
-(English Reference for text_attack: "People do not know that the Western Development requires capital and technology, because the person in charge pointed out that fundamentally, knowledge and talent are needed more.")
-
 The response_original and response_attack fields serve only as a reference. After the team submits the attack set, the system backend will call the model based on text_attack to obtain the real output for calculating the actual score.
 
 Participating teams do not need to perform attack operations on all 1,000 items in the test set. They only need to submit the items that have actually been adapted. The maximum number of items counted towards the score is 200. Therefore, each team should test, filter, and sort the adapted data themselves, and submit the top 200 items with the best self-tested attack effects.
@@ -148,11 +139,21 @@ Since the evaluation mode is a red teaming attack, this task evaluates performan
 
 To prevent participating teams from inducing unstable model outputs through cheating methods such as inputting meaningless characters or destroying syntactic structures, this evaluation implements a "validity admission" mechanism for attack samples. All submitted adapted items must pass the following three automated checks before entering the scoring phase:
 
-* **(1) Core Component Retention Check**: The adapted background sentence (`text_attacked`) must completely retain the two core linguistic components from the original data: the "factive predicate" (`predicate`) and the "clause to be judged" (`hypothesis`). If the core components are tampered with, deleted, or their word order is scrambled, the sample is directly judged as invalid.
-* **(2) Text Modification Degree Check**: To ensure that the attack samples only undergo minor perturbations based on the original context rather than being rewritten on a large scale, the system will calculate the text similarity between the adapted sentence and the original sentence. This check uses the character-level Levenshtein Ratio to quantify the extent of text modification (including addition, deletion, and modification operations):
+### (1) Core Component Retention Check
+
+The adapted background sentence (`text_attacked`) must completely retain the two core linguistic components from the original data: the "factive predicate" (`predicate`) and the "clause to be judged" (`hypothesis`). If the core components are tampered with, deleted, or their word order is scrambled, the sample is directly judged as invalid.
+
+### (2) Text Modification Degree Check
+
+To ensure that the attack samples only undergo minor perturbations based on the original context rather than being rewritten on a large scale, the system will calculate the text similarity between the adapted sentence and the original sentence. This check uses the character-level Levenshtein Ratio to quantify the extent of text modification (including addition, deletion, and modification operations):
+
     $$Ratio(A,B)=\frac{|A|+|B|-L(A,B)}{|A|+|B|}$$
-    Taking the adaptation of original sentence A "他知道局面已经不可挽回" (He knows that the situation is irreversible) to sentence B "他不知道局面已经不可挽回" (He does not know that the situation is irreversible) as an example, the modification operation only inserts one character "不" (not), so the edit distance $L(A,B)=1$. This results in $Ratio(A,B) = (11+12-1)/(11+12) = 22/23 \approx 0.957$. We require that the modification ratio must not exceed 40% (i.e., $Ratio \geq 0.6$). If it is below this threshold, it indicates that the modification is too extensive and deviates from the constraints of the original item, and the sample will be directly judged as invalid.
-* **(3) Semantic Fluency Check**: The adapted sentences must remain naturally fluent in terms of linguistic intuition and grammar. The system will use an LLM-as-a-judge mode (combining preset rules and a semantic fluency scorer) to automatically score the samples. The scoring interval is [0, 1], and samples with a score < 0.6 will be judged as invalid.
+    
+Taking the adaptation of original sentence A "他知道局面已经不可挽回" (He knows that the situation is irreversible) to sentence B "他不知道局面已经不可挽回" (He does not know that the situation is irreversible) as an example, the modification operation only inserts one character "不" (not), so the edit distance $L(A,B)=1$. This results in $Ratio(A,B) = (11+12-1)/(11+12) = 22/23 \approx 0.957$. We require that the modification ratio must not exceed 40% (i.e., $Ratio \geq 0.6$). If it is below this threshold, it indicates that the modification is too extensive and deviates from the constraints of the original item, and the sample will be directly judged as invalid.
+
+### (3) Semantic Fluency Check
+
+The adapted sentences must remain naturally fluent in terms of linguistic intuition and grammar. The system will use an LLM-as-a-judge mode (combining preset rules and a semantic fluency scorer) to automatically score the samples. The scoring interval is [0, 1], and samples with a score < 0.6 will be judged as invalid.
 
 After receiving a submission, the evaluation system will first run the above three admission checks. If there is invalid data in the sample set, the system will reject the submission and return the data IDs (`d_id`) of the invalid samples. The leaderboard system will ultimately only calculate scores for valid sample sets that pass the validity admission.
 
