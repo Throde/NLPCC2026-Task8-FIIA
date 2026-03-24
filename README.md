@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="badge/ccl2026.png" height="70">
-  <img src="badge/UM & FAH.png" height="70">
-  <img src="badge/HUST.png" height="70">
+  <img src="badge/ccl2026.png" height="60">
+  <img src="badge/UM & FAH.png" height="60">
+  <img src="badge/HUST.png" height="60">
 </p>
 
 
