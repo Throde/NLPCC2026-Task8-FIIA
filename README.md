@@ -6,7 +6,7 @@
     <img src="badge/HUST.png" height="45">
   </a>
   <a href="https://fah.um.edu.mo/">
-    <img src="badge/UM & FAH.png" height="45">
+    <img src="badge/UM_FAH.png" height="45">
   </a>
 </p>
 
