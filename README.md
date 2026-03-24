@@ -1,13 +1,7 @@
 <p align="center">
-  <a href="http://tcci.ccf.org.cn/conference/2026/">
-    <img src="badge/NLPCC2026_BC.png" height="45">
-  </a>
-  <a href="https://sfl.hust.edu.cn/">
-    <img src="badge/HUST.png" height="45">
-  </a>
-  <a href="https://fah.um.edu.mo/">
-    <img src="badge/UM_FAH.png" height="45">
-  </a>
+  <a href="http://tcci.ccf.org.cn/conference/2026/"><img src="badge/NLPCC2026_BC.png" height="45"></a>
+  <a href="https://sfl.hust.edu.cn/"><img src="badge/HUST.png" height="45"></a>
+  <a href="https://fah.um.edu.mo/"><img src="badge/UM_FAH.png" height="45"></a>
 </p>
 
 
