@@ -200,18 +200,18 @@ Where $F$ is the number of verb categories, and $MIS_j$ is the score of valid su
 本次共享任务由华中科技大学、澳门大学和南京师范大学联合组织。
 
 **任务组织者**：
-* **Xuri Tang**（华中科技大学）xrtang@hust.edu.cn
-* **Yulin Yuan**（澳门大学）yulinyuan@um.edu.mo
-* **Bin Li**（南京师范大学）
+* **唐旭日**（华中科技大学教授）xrtang@hust.edu.cn
+* **袁毓林**（澳门大学教授）yulinyuan@um.edu.mo
+* **李斌**（南京师范大学教授）
 
 **任务联系人**：
-* **Daohuan Liu**（华中科技大学）liudh@hust.edu.cn
-* **Guanliang Cong**（澳门大学）guanliang.cong@connect.um.edu.mo
-* **Junchao Wu**（澳门大学）
+* **刘道焕**（华中科技大学）liudh@hust.edu.cn
+* **丛冠良**（澳门大学）guanliang.cong@connect.um.edu.mo
+* **吴俊潮**（澳门大学）
 
 **团队成员**：
-* **华中科技大学**：Jiaoyang Su, Yu'er Wang
-* **澳门大学**：Liwei Zhou, Tianqi Xun, Yang Chen, Mai Xu, Zehua Li, Yueyao Wang, Changling Li
+* **华中科技大学**：苏佼阳, 王宇儿
+* **澳门大学**：周立炜, 寻天琦, 陈阳, 徐劢, 李泽华, 王月瑶, 李昌玲
 
 如有任何疑问，请随时通过以下邮箱联系我们： liudh@hust.edu.cn.
 
