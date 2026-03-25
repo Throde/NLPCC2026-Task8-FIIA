@@ -14,10 +14,8 @@ For Chinese: [中文页](README_CN.md)
 # Registration
 
 Participants may register through either of the following channels:
-1. Submit the online registration form via: [https://alidocs.dingtalk.com/notable/share/form/v012M9qP5j5D8A1JO01_FSwM4Z8_xbMCeFp]
+1. Submit the online registration form via: https://alidocs.dingtalk.com/notable/share/form/v012M9qP5j5D8A1JO01_FSwM4Z8_xbMCeFp
 2. Complete the registration document (.docx) and submit it via email to liudh@hust.edu.cn.
-
-Should you have any questions, please feel free to contact us at: liudh@hust.edu.cn.
 
 # Task Introduction
 
@@ -79,7 +77,7 @@ To ensure compliance, we will implement a "Sample Validity Admission" check duri
 
 Participating teams are required to conduct independent Multi-turn Prompting to the models via API. They must ask the model to judge the truth value of the `hypothesis` field based on the value of the `text` field, record the model's return results (T/F/U), and self-check its self-consistency rate. The selection range of models, prompt templates, and other evaluation-related environmental parameters are uniformly specified by the task organizers.
 
-### (1) Optional Model Range
+### (1) Optional Model Range (Updating)
 To comprehensively and fairly evaluate the effectiveness of the attack strategies, this evaluation sets up two parallel independent tracks. The specific versions of the tested models for each track are uniquely designated by the organizers:
 
 | Model Series | Track Name | Specific Model (API Node) |
@@ -137,7 +135,7 @@ In addition, all resources used by the participating teams need to be detailed i
 
 # Attack Sample Validity Check
 
-To prevent participating teams from inducing unstable model outputs through cheating methods such as inputting meaningless characters or destroying syntactic structures, this evaluation implements a "validity admission" mechanism for attack samples. All submitted adapted items must pass the following three automated checks before entering the scoring phase:
+To prevent participating teams from inducing unstable model outputs through cheating methods such as inputting meaningless characters or destroying syntactic structures, this evaluation implements a validity check for attack samples. All submitted adapted items must pass the following three automated checks before entering the scoring phase:
 
 ## (1) Core Component Retention Check
 
@@ -158,7 +156,7 @@ The adapted sentences must remain naturally fluent in terms of linguistic intuit
 After receiving a submission, the evaluation system will first run the above three admission checks. If there is invalid data in the sample set, the system will reject the submission and return the data IDs (`d_id`) of the invalid samples. The leaderboard system will ultimately only calculate scores for valid sample sets that pass the validity admission.
 
 
-# Evaluation Metric
+# Evaluation Metric (Updating)
 
 Since the evaluation mode is a red teaming attack, this task evaluates performance by measuring the "attack success rate" (Weighted-MIS). The overall calculation process is divided into the following two steps.
 
@@ -203,6 +201,7 @@ This shared task is jointly organized by Huazhong University of Science and Tech
 * **Yueyao Wang** | University of Macau
 * **Changling Li** | University of Macau
 
+Should you have any questions, please feel free to contact us at: liudh@hust.edu.cn.
 
 # References
 
