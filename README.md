@@ -182,13 +182,13 @@ Where $F$ is the number of verb categories, and $MIS_j$ is the score of valid su
 
 # Tentative Schedule
 
-* **Task Schedule**: Please refer to http://tcci.ccf.org.cn/conference/2026/ for the official conference timeline.
-* **Dataset & Guidelines**: The dataset and usage instructions will be released when the task officially begins.
+Please refer to http://tcci.ccf.org.cn/conference/2026/ for the official conference timeline.
 
 
 # Awards & Conference Support (Updating)
 
 * **NLPCC & CCF-NLP Certification**: The top 1 participating team of each track will be certified by NLPCC and CCF-NLP.
+* **Cash Prize**: Pending.
 
 
 # Organizer & Contact
