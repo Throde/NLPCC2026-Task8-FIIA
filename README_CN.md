@@ -184,25 +184,34 @@ $$Weighted\_MIS=\frac{1}{F}\sum_{j=1}^{F}MIS_j$$
 Where $F$ is the number of verb categories, and $MIS_j$ is the score of valid submitted samples under the $j$-th category of words. The final ranking basis is the Weighted-MIS.
 
 
-# 组织者
+# 暂定日程
+
+请参阅 http://tcci.ccf.org.cn/conference/2026/ 获取官方会议时间表。
+
+
+# 奖项与会议支持（更新中）
+
+* **NLPCC 与 CCF-NLP 证书**：每个赛道排名第一的参赛队伍将获得 NLPCC 和 CCF-NLP 的获奖证书。
+* **奖金支持**：正在争取中。
+
+
+# 组织方团队
 
 本次共享任务由华中科技大学、澳门大学和南京师范大学联合组织。
 
-* **Daohuan Liu** | 华中科技大学（联系人） liudh@hust.edu.cn
-* **Xuri Tang** | 华中科技大学（组织者） xrtang@hust.edu.cn
-* **Yulin Yuan** | 澳门大学（组织者） yulinyuan@um.edu.mo
-* **Bin Li** | 南京师范大学（组织者）
-* **Guanliang Cong** | 澳门大学
-* **Junchao Wu** | 澳门大学
-* **Liwei Zhou** | 澳门大学
-* **Tianqi Xun** | 澳门大学
-* **Yang Chen** | 澳门大学
-* **Mai Xu** | 澳门大学
-* **Jiaoyang Su** | 华中科技大学
-* **Yu'er Wang** | 华中科技大学
-* **Zehua Li** | 澳门大学
-* **Yueyao Wang** | 澳门大学
-* **Changling Li** | 澳门大学
+**任务组织者**：
+* **Xuri Tang**（华中科技大学）xrtang@hust.edu.cn
+* **Yulin Yuan**（澳门大学）yulinyuan@um.edu.mo
+* **Bin Li**（南京师范大学）
+
+**任务联系人**：
+* **Daohuan Liu**（华中科技大学）liudh@hust.edu.cn
+* **Guanliang Cong**（澳门大学）guanliang.cong@connect.um.edu.mo
+* **Junchao Wu**（澳门大学）
+
+**团队成员**：
+* **华中科技大学**：Jiaoyang Su, Yu'er Wang
+* **澳门大学**：Liwei Zhou, Tianqi Xun, Yang Chen, Mai Xu, Zehua Li, Yueyao Wang, Changling Li
 
 如有任何疑问，请随时通过以下邮箱联系我们： liudh@hust.edu.cn.
 
