@@ -180,25 +180,34 @@ $$Weighted\_MIS=\frac{1}{F}\sum_{j=1}^{F}MIS_j$$
 Where $F$ is the number of verb categories, and $MIS_j$ is the score of valid submitted samples under the $j$-th category of words. The final ranking basis is the Weighted-MIS.
 
 
-# Organizer
+# Tentative Schedule
+
+* **Task Schedule**: Please refer to http://tcci.ccf.org.cn/conference/2026/ for the official conference timeline.
+* **Dataset & Guidelines**: The dataset and usage instructions will be released when the task officially begins.
+
+
+# Awards & Conference Support (Updating)
+
+* **NLPCC & CCF-NLP Certification**: The top 1 participating team of each track will be certified by NLPCC and CCF-NLP.
+
+
+# Organizer & Contact
 
 This shared task is jointly organized by Huazhong University of Science and Technology, University of Macau, and Nanjing Normal University.
 
-* **Daohuan Liu** | Huazhong University of Science and Technology (Contact) liudh@hust.edu.cn
-* **Xuri Tang** | Huazhong University of Science and Technology (Organizer) xrtang@hust.edu.cn
-* **Yulin Yuan** | University of Macau (Organizer) yulinyuan@um.edu.mo
-* **Bin Li** | Nanjing Normal University (Organizer)
-* **Guanliang Cong** | University of Macau
-* **Junchao Wu** | University of Macau
-* **Liwei Zhou** | University of Macau
-* **Tianqi Xun** | University of Macau
-* **Yang Chen** | University of Macau
-* **Mai Xu** | University of Macau
-* **Jiaoyang Su** | Huazhong University of Science and Technology
-* **Yu'er Wang** | Huazhong University of Science and Technology
-* **Zehua Li** | University of Macau
-* **Yueyao Wang** | University of Macau
-* **Changling Li** | University of Macau
+**Organizer**:
+* **Xuri Tang** (Huazhong University of Science and Technology) xrtang@hust.edu.cn
+* **Yulin Yuan** (University of Macau) yulinyuan@um.edu.mo
+* **Bin Li** (Nanjing Normal University)
+
+**Contact**:
+* **Daohuan Liu** (Huazhong University of Science and Technology) liudh@hust.edu.cn
+* **Guanliang Cong** (University of Macau) guanliang.cong@connect.um.edu.mo
+* **Junchao Wu** (University of Macau)
+
+**Team Members**:
+* **Huazhong University of Science and Technology**: Jiaoyang Su, Yu'er Wang
+* **University of Macau**: Liwei Zhou, Tianqi Xun, Yang Chen, Mai Xu, Zehua Li, Yueyao Wang, Changling Li
 
 Should you have any questions, please feel free to contact us at: liudh@hust.edu.cn.
 
