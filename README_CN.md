@@ -15,9 +15,7 @@
 
 有意参赛的团队或个人可通过以下任一渠道进行报名：
 1. 通过以下链接提交在线报名表： https://alidocs.dingtalk.com/notable/share/form/v012M9qP5j5D8A1JO01_FSwM4Z8_xbMCeFp
-2. 填写报名文档 (.docx) 并通过电子邮件发送至 liudh@hust.edu.cn.
-
-如有任何疑问，请随时通过以下邮箱联系我们： liudh@hust.edu.cn.
+2. 或填写报名文档 (.docx) 并通过电子邮件发送至 liudh@hust.edu.cn.
 
 # 任务介绍
 
@@ -205,6 +203,8 @@ Where $F$ is the number of verb categories, and $MIS_j$ is the score of valid su
 * **Zehua Li** | 澳门大学
 * **Yueyao Wang** | 澳门大学
 * **Changling Li** | 澳门大学
+
+如有任何疑问，请随时通过以下邮箱联系我们： liudh@hust.edu.cn.
 
 
 # 参考文献
