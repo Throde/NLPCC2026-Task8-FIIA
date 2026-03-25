@@ -15,7 +15,7 @@ For Chinese: [中文页](README_CN.md)
 
 Participants may register through either of the following channels:
 1. Submit the online registration form via: https://alidocs.dingtalk.com/notable/share/form/v012M9qP5j5D8A1JO01_FSwM4Z8_xbMCeFp
-2. Complete the registration document (.docx) and submit it via email to liudh@hust.edu.cn.
+2. Or complete the registration document (.docx) and submit it via email to liudh@hust.edu.cn.
 
 # Task Introduction
 
@@ -56,9 +56,9 @@ The foundational corpus for this evaluation is provided by the team from the Uni
 ```
 
 * **`id`**: Refers to the data number in the dataset released by the organizers.
-* **`predicate`**: Refers to the factive predicate, which is the core linguistic component for factivity inference. Most predicates are verbs, while a few are adjectives. During attack testing, modifying the content of this field within the "text" is prohibited.
-* **`text_original`**: Background sentence (main entailing sentence). This field provides the context required for inference, and the model needs to rely on the content of this field to judge the truth value of the "hypothesis" field.
-* **`hypothesis`**: Conclusion sentence (entailed sentence). This field provides the discriminative sentence required for factivity inference, and the model needs to use the content of the "text" field to judge the truth value of this field. During attack testing, modifying the content of this field within the "text" is prohibited.
+* **`predicate`**: Refers to the factive predicate, which is the core linguistic component for factivity inference. Most predicates are verbs, while a few are adjectives. During attack testing, modifying the content of this field within the `text` is prohibited.
+* **`text_original`**: Entailing sentence. This field provides the context required for inference, and the model needs to rely on the content of this field to judge the truth value of the `hypothesis` field.
+* **`hypothesis`**: Entailed sentence. This field provides the discriminative sentence required for factivity inference, and the model needs to use the content of the "text" field to judge the truth value of this field. During attack testing, modifying the content of this field within the `text` is prohibited.
 * **`option`**: This field reflects the possible answer situations of the model and contains 4 keys. "T" indicates that according to the background sentence, the conclusion sentence is true. "F" indicates that according to the background sentence, the conclusion sentence is false. "U" indicates that according to the background sentence, the truth value of the conclusion sentence cannot be determined. "R" indicates that the model refuses to answer.
 
 ## Attack Methods
@@ -97,7 +97,6 @@ Selecting the Qwen and DeepSeek series as test baselines is primarily based on t
 假设：{hypothesis}
 只允许答复T/F/U（对应真/假/无法确定），禁止回复其他解释性内容。
 ```
-(English Reference: Based on the content of the "text", determine the truth value of the "hypothesis": Text: {text} Hypothesis: {hypothesis} Only T/F/U (corresponding to True/False/Uncertain) are allowed as responses; any other explanatory content is prohibited.)
 
 ### (3) Parameter Configuration
 To restore the ecological validity of large models in practical applications, parameters such as Temperature are set to the official recommended or default values for each model series. Participating teams are not allowed to modify them.
