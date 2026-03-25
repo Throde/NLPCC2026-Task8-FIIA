@@ -4,6 +4,9 @@
   <a href="https://fah.um.edu.mo/"><img src="badge/UM_FAH.png" height="45"></a>
 </p>
 
+<p align="left"><font size=50>[中文页面](README_CN.md)</font></p>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 # NLPCC2026-Task8: Factivity Inference Inconsistency Attack (FIIA)
 
