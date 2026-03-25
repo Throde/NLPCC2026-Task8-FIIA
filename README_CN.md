@@ -138,30 +138,30 @@
 此外，参赛队伍使用的所有资源均需在最终提交的技术报告中予以详细说明。实验的所有代码和结果必须妥善保存，以备日后查阅。
 
 
-# Attack Sample Validity Check
+# 攻击样本有效性检查
 
-To prevent participating teams from inducing unstable model outputs through cheating methods such as inputting meaningless characters or destroying syntactic structures, this evaluation implements a "validity admission" mechanism for attack samples. All submitted adapted items must pass the following three automated checks before entering the scoring phase:
+为防止参赛队伍通过输入无意义字符或破坏句法结构等作弊手段诱导模型输出不稳定结果，本评测对攻击样本实行“有效性准入”检查。所有提交的改编数据在进入评分阶段前，必须通过以下三项自动化检查：
 
-## (1) Core Component Retention Check
+## (1) 核心成分保留检查
 
-The adapted background sentence (`text_attacked`) must completely retain the two core linguistic components from the original data: the "factive predicate" (`predicate`) and the "clause to be judged" (`hypothesis`). If the core components are tampered with, deleted, or their word order is scrambled, the sample is directly judged as invalid.
+改编后的背景句（`text_attacked`）必须完整保留原始数据中的两个核心语言成分：“叙实性谓词”（`predicate`）和“待判断分句”（`hypothesis`）。如果核心成分被篡改、删除或语序被打乱，该样本将被直接判定为无效。
 
-## (2) Text Modification Degree Check
+## (2) 文本修改程度检查
 
-To ensure that the attack samples only undergo minor perturbations based on the original context rather than being rewritten on a large scale, the system will calculate the text similarity between the adapted sentence and the original sentence. This check uses the character-level Levenshtein Ratio to quantify the extent of text modification (including addition, deletion, and modification operations):
+为确保攻击样本仅在原始上下文的基础上进行微小扰动，而非进行大规模重写，系统将计算改编句与原句之间的文本相似度。此检查使用字符级别的莱文斯坦比（Levenshtein Ratio）来量化文本修改的程度（包括增、删、改操作）：
 
 $$Ratio(A,B)=\frac{|A|+|B|-L(A,B)}{|A|+|B|}$$
     
-Taking the adaptation of original sentence A "他知道局面已经不可挽回" (He knows that the situation is irreversible) to sentence B "他不知道局面已经不可挽回" (He does not know that the situation is irreversible) as an example, the modification operation only inserts one character "不" (not), so the edit distance $L(A,B)=1$. This results in $Ratio(A,B) = (11+12-1)/(11+12) = 22/23 \approx 0.957$. We require that the modification ratio must not exceed 40% (i.e., $Ratio \geq 0.6$). If it is below this threshold, it indicates that the modification is too extensive and deviates from the constraints of the original item, and the sample will be directly judged as invalid.
+以将原句 A“他知道局面已经不可挽回”改编为句子 B“他不知道局面已经不可挽回”为例，修改操作仅插入了一个字符“不”，因此编辑距离 $L(A,B)=1$。由此得出 $Ratio(A,B) = (11+12-1)/(11+12) = 22/23 \approx 0.957$。我们要求修改比例不得超过 40%（即 $Ratio \geq 0.6$）。如果低于此阈值，则表明修改幅度过大，偏离了原始数据的约束，该样本将被直接判定为无效。
 
-## (3) Semantic Fluency Check
+## (3) 语义流畅度检查
 
-The adapted sentences must remain naturally fluent in terms of linguistic intuition and grammar. The system will use an LLM-as-a-judge mode (combining preset rules and a semantic fluency scorer) to automatically score the samples. The scoring interval is [0, 1], and samples with a score < 0.6 will be judged as invalid.
+改编后的句子在语感和语法上必须保持自然流畅。系统将采用 LLM-as-a-judge（大语言模型作为裁判）模式，结合预设规则和语义流畅度评分器对样本进行自动打分。评分区间为 [0, 1]，得分 <0.6 的样本将被判定为无效。
 
-After receiving a submission, the evaluation system will first run the above three admission checks. If there is invalid data in the sample set, the system will reject the submission and return the data IDs (`d_id`) of the invalid samples. The leaderboard system will ultimately only calculate scores for valid sample sets that pass the validity admission.
+在收到提交后，评测系统将首先运行上述三项准入检查。如果样本集中存在无效数据，系统将驳回该次提交，并返回无效样本的数据 ID (`d_id`)。排行榜系统最终只会对通过有效性准入的有效样本集进行计分。
 
 
-# Evaluation Metric
+# 评价标准（待更新）
 
 Since the evaluation mode is a red teaming attack, this task evaluates performance by measuring the "attack success rate" (Weighted-MIS). The overall calculation process is divided into the following two steps.
 
@@ -186,30 +186,30 @@ $$Weighted\_MIS=\frac{1}{F}\sum_{j=1}^{F}MIS_j$$
 Where $F$ is the number of verb categories, and $MIS_j$ is the score of valid submitted samples under the $j$-th category of words. The final ranking basis is the Weighted-MIS.
 
 
-# Organizer
+# 组织者
 
-This shared task is jointly organized by Huazhong University of Science and Technology, University of Macau, and Nanjing Normal University.
+本次共享任务由华中科技大学、澳门大学和南京师范大学联合组织。
 
-* **Daohuan Liu** | Huazhong University of Science and Technology (Contact) liudh@hust.edu.cn
-* **Xuri Tang** | Huazhong University of Science and Technology (Organizer) xrtang@hust.edu.cn
-* **Yulin Yuan** | University of Macau (Organizer) yulinyuan@um.edu.mo
-* **Bin Li** | Nanjing Normal University (Organizer)
-* **Guanliang Cong** | University of Macau
-* **Junchao Wu** | University of Macau
-* **Liwei Zhou** | University of Macau
-* **Tianqi Xun** | University of Macau
-* **Yang Chen** | University of Macau
-* **Mai Xu** | University of Macau
-* **Jiaoyang Su** | Huazhong University of Science and Technology
-* **Yu'er Wang** | Huazhong University of Science and Technology
-* **Zehua Li** | University of Macau
-* **Yueyao Wang** | University of Macau
-* **Changling Li** | University of Macau
+* **Daohuan Liu** | 华中科技大学（联系人） liudh@hust.edu.cn
+* **Xuri Tang** | 华中科技大学（组织者） xrtang@hust.edu.cn
+* **Yulin Yuan** | 澳门大学（组织者） yulinyuan@um.edu.mo
+* **Bin Li** | 南京师范大学（组织者）
+* **Guanliang Cong** | 澳门大学
+* **Junchao Wu** | 澳门大学
+* **Liwei Zhou** | 澳门大学
+* **Tianqi Xun** | 澳门大学
+* **Yang Chen** | 澳门大学
+* **Mai Xu** | 澳门大学
+* **Jiaoyang Su** | 华中科技大学
+* **Yu'er Wang** | 华中科技大学
+* **Zehua Li** | 澳门大学
+* **Yueyao Wang** | 澳门大学
+* **Changling Li** | 澳门大学
 
 
-# References
+# 参考文献
 
-If you're new to this field, we believe the following papers can help you quickly get familiar with it (continuously updated):
+如果您是该领域的新手，以下论文将能帮助您快速熟悉相关内容（持续更新中）：
 
 [1]陈振宇 & 姜毅宁.(2018).事实性与叙实性——通向直陈世界的晦暗与透明. 语言研究集刊(01),15-37+372-373. doi:CNKI:SUN:YJJK.0.2018-01-002.
 
