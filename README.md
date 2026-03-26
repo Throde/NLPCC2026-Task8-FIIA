@@ -58,10 +58,10 @@ The corpus is primarily filtered from relevant Chinese corpora and has been manu
 * **`predicate`**: Refers to the factive predicate, which is the core linguistic component for factivity inference. Most predicates are verbs, while a few are adjectives. During attack testing, modifying the content of this field within the `text` is prohibited.
 * **`text_original`**: Entailing sentence. This field provides the context required for inference, and the model needs to rely on the content of this field to judge the truth value of the `hypothesis` field.
 * **`hypothesis`**: Entailed sentence. This field provides the discriminative sentence required for factivity inference, and the model needs to use the content of the "text" field to judge the truth value of this field. During attack testing, modifying the content of this field within the `text` is prohibited.
-* **`option`**: This field reflects the possible answer situations of the model and contains 4 keys. The result returned by the model should be a single letter, and only one value is permitted:
-  * If the `hypothesis` is judged to be true based on the `text`, it must output "T".
-  * If the `hypothesis` is judged to be false based on the `text`, it must output "F".
-  * If the truth or falsity of the `hypothesis` cannot be determined based on the `text`, it must output "U".
+* **`option`**: The result returned by the model should be a single letter, and only one value is permitted:
+  * If the `hypothesis` is judged to be true based on the `text`, output "T".
+  * If the `hypothesis` is judged to be false based on the `text`, output "F".
+  * If the truth or falsity of the `hypothesis` cannot be determined based on the `text`, output "U".
   * If the model refuses to answer, or if the returned text does not meet the above answer specifications, the output will be forcibly marked as "R". This is an invalid answer and is not included in the final consistency rate calculation. Teams should avoid this situation during adaptation and testing.
 
 ## Attack Methods
