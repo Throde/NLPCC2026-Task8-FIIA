@@ -36,9 +36,10 @@ Therefore, focusing on the consistency issue, this task adopts a Red Teaming att
 
 # Dataset and Usage Instructions 
 
-The corpus is primarily filtered from relevant Chinese corpora and has been manually annotated and proofread by the evaluation organizers. The evaluation set is expected to contain 1,000 data items, covering approximately 300 Chinese factive predicates. The dataset used for the evaluation is published in JSON format, serving as the basis for text adaptation by participating teams. Since the evaluation mode is a red teaming attack, it is not divided into training, validation, and test sets.
+The corpus is primarily filtered from relevant Chinese corpora and has been manually annotated and proofread by the evaluation organizers. The evaluation set is expected to contain 1,000 data items, covering approximately 300 Chinese factive predicates. The dataset used for the evaluation is published in JSON format, serving as the basis for text adaptation by participating teams.
 
-## Test Set Data Example
+Data Example:
+
 ```json
 [ {
   "id": "0001",
@@ -64,9 +65,12 @@ The corpus is primarily filtered from relevant Chinese corpora and has been manu
   * If the truth or falsity of the `hypothesis` cannot be determined based on the `text`, output "U".
   * If the model refuses to answer, or if the returned text does not meet the above answer specifications, the output will be forcibly marked as "R". This is an invalid answer and is not included in the final consistency rate calculation. Teams should avoid this situation during adaptation and testing.
 
+
+# Evaluation Operations and Specifications
+
 ## Attack Methods
 
-Participating teams must modify the content of the `text_original` field to minimize the self-consistency rate of the large model's inference results as much as possible. When adapting `text_original`, the contents corresponding to the `predicate` and `hypothesis` fields must be kept intact and undamaged.
+Participating teams should modify the content of the `text_original` field to minimize the self-consistency rate of the large model's inference results as much as possible. When adapting `text_original`, the contents corresponding to the `predicate` and `hypothesis` fields must be kept intact and undamaged.
 
 Modifications should focus on linguistic syntactic or semantic categories, rather than seeking system vulnerabilities outside the natural language framework (such as injecting gibberish or unnatural instructions). We encourage participating teams to design attack paths from the dimension of linguistic features. Suggested starting points for adaptation include, but are not limited to:
 
@@ -125,16 +129,15 @@ For example, if a team actually adapted 326 items and submitted all 326 items to
 
 In addition, all resources used by the participating teams need to be detailed in the final submitted technical report. All code and results from the experiments must be properly saved for future reference.
 
-
-# Attack Sample Validity Check
+## Attack Sample Validity Check
 
 To prevent participating teams from inducing unstable model outputs through cheating methods such as inputting meaningless characters or destroying syntactic structures, this evaluation implements a validity check for attack samples. All submitted adapted items must pass the following three automated checks before entering the scoring phase:
 
-## (1) Core Component Retention Check
+### (1) Core Component Retention Check
 
 The adapted background sentence (`text_attacked`) must completely retain the two core linguistic components from the original data: the "factive predicate" (`predicate`) and the "clause to be judged" (`hypothesis`). If the core components are tampered with, deleted, or their word order is scrambled, the sample is directly judged as invalid.
 
-## (2) Text Modification Degree Check
+### (2) Text Modification Degree Check
 
 To ensure that the attack samples only undergo minor perturbations based on the original context rather than being rewritten on a large scale, the system will calculate the text similarity between the adapted sentence and the original sentence. This check uses the character-level Levenshtein Ratio to quantify the extent of text modification (including addition, deletion, and modification operations):
 
@@ -142,7 +145,7 @@ $$Ratio(A,B)=\frac{|A|+|B|-L(A,B)}{|A|+|B|}$$
     
 Taking the adaptation of original sentence A "他知道局面已经不可挽回" (He knows that the situation is irreversible) to sentence B "他不知道局面已经不可挽回" (He does not know that the situation is irreversible) as an example, the modification operation only inserts one character "不" (not), so the edit distance $L(A,B)=1$. This results in $Ratio(A,B) = (11+12-1)/(11+12) = 22/23 \approx 0.957$. We require that the modification ratio must not exceed 40% (i.e., $Ratio \geq 0.6$). If it is below this threshold, it indicates that the modification is too extensive and deviates from the constraints of the original item, and the sample will be directly judged as invalid.
 
-## (3) Semantic Fluency Check
+### (3) Semantic Fluency Check
 
 The adapted sentences must remain naturally fluent in terms of linguistic intuition and grammar. The system will use an LLM-as-a-judge mode (combining preset rules and a semantic fluency scorer) to automatically score the samples. The scoring interval is [0, 1], and samples with a score < 0.6 will be judged as invalid.
 
@@ -187,8 +190,6 @@ Please refer to http://tcci.ccf.org.cn/conference/2026/ for the official confere
 
 # Organizer & Contact
 
-This shared task is jointly organized by Huazhong University of Science and Technology, University of Macau, and Nanjing Normal University.
-
 **Organizer**:
 * **Xuri Tang** (Huazhong University of Science and Technology) xrtang@hust.edu.cn
 * **Yulin Yuan** (University of Macau) yulinyuan@um.edu.mo
@@ -202,8 +203,6 @@ This shared task is jointly organized by Huazhong University of Science and Tech
 **Team Members**:
 * **Huazhong University of Science and Technology**: Jiaoyang Su, Yu'er Wang
 * **University of Macau**: Liwei Zhou, Tianqi Xun, Yang Chen, Mai Xu, Zehua Li, Yueyao Wang, Changling Li
-
-Should you have any questions, please feel free to contact us at: liudh@hust.edu.cn.
 
 # References
 
