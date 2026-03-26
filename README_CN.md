@@ -15,11 +15,11 @@
 
 有意参赛的团队或个人可通过以下任一渠道进行报名：
 1. 通过以下链接提交在线报名表： https://alidocs.dingtalk.com/notable/share/form/v012M9qP5j5D8A1JO01_FSwM4Z8_xbMCeFp
-2. 或填写报名文档 (FIIA-Registration Form.docx) 并通过电子邮件发送至 liudh@hust.edu.cn.
+2. 或填写报名文档 (FIIA-Registration Form.docx) 并通过电子邮件发送至 liudh@hust.edu.cn。
 
 # 任务介绍
 
-叙实性推理（Factivity Inference, FI）是一项与判断事件真实性相关的语义理解任务，主要表现为语言使用者能够基于某些动词性语言成分（例如“相信”、“谎称”、“意识到”）的使用，推断所描述事件的真实性。例如：
+叙实性推理（Factivity Inference）是一项与判断事件真实性相关的语义理解任务，主要表现为语言使用者能够基于某些动词性语言成分（例如“相信”、“谎称”、“意识到”）的使用，推断所描述事件的真实性。例如：
 
 * **例 1-1:** 他们意识到局面已经不可挽回。（→局面已经不可挽回=True）
 * **例 1-2:** 他们没有意识到局面已经不可挽回。（→局面已经不可挽回=True）
