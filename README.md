@@ -19,25 +19,24 @@ Participants may register through either of the following channels:
 
 # Task Introduction
 
-Factivity Inference (FI) is a semantic understanding task related to judging the truthfulness of events, primarily involving the expression of factual information in language use. In human conversational communication, factivity inference capability mainly manifests as language users being able to infer the truthfulness (true or false) of events described by other linguistic components based on the use of certain verbal linguistic components (e.g., “相信” (believe), “谎称” (falsely claim), “意识到” (realize)). For example:
+Factivity Inference (FI) is a semantic understanding task related to judging the truthfulness of events, which primarily manifests as language users being able to infer the truthfulness of events based on the use of certain verbal linguistic components (e.g., “相信” (believe), “谎称” (falsely claim), “意识到” (realize)). For example:
 
 * **Example 1-1:** 他们意识到局面已经不可挽回。（→局面已经不可挽回） (They realized that the situation was irreversible. → It is true that "the situation was irreversible".)
 * **Example 1-2:** 他们没有意识到局面已经不可挽回。（→局面已经不可挽回） (They did not realize that the situation was irreversible. → It is true that "the situation was irreversible".)
 
-From the two sentences in Example 1, we can infer the existence of a fact: “局面已经不可挽回” (the situation is irreversible). As an important navigation mechanism and means of linguistic reasoning, factivity inference is an important semantic foundation and formal basis for machines to perform tasks such as textual entailment recognition, hallucination processing, and belief revision. It also has important value for downstream tasks such as information retrieval, information extraction, question answering, and sentiment analysis. The ability to correctly acquire factual information from discourse and judge the speaker's subjective attitude towards factual information is extremely important for the application and interaction of current Large Language Models (LLMs) or agents. However, existing experiments show that the factivity inference results of large models are often affected by prompt induction, subtle text perturbations, or complex contexts, showing high instability. For example, in the following two sentences, based on the same questioning method and 10 rounds of calls to the same model, LLMs showed completely different self-consistency rates:
+From the two sentences in Example 1, we can infer the existence of a fact: “局面已经不可挽回” (the situation is irreversible). The ability to correctly acquire factual information from discourse and judge the speaker's subjective attitude towards factual information is extremely important for the application and interaction of current Large Language Models (LLMs) or agents. However, existing experiments show that the factivity inference results of large models are often affected by prompt induction, subtle text perturbations, or complex contexts, showing high instability. For example, in the following two sentences, based on the same questioning method and 10 rounds of calls to the same model, LLMs showed completely different self-consistency rates:
 
 * **Example 2-1:** 人们都知道西部大开发需要资金和技术，但是负责人指出，从根本来看更需要知识和人才。→“西部大开发需要资金和技术”是否为真？ (Everyone knows that the Western Development requires capital and technology, but the person in charge pointed out that fundamentally, knowledge and talent are needed more. → Is "the Western Development requires capital and technology" true?) *(Inference Result: True=10/10, Self-consistency Rate=100%)* 
 * **Example 2-2:** 人们不知道西部大开发需要资金和技术，因为负责人指出，从根本来看更需要知识和人才。→“西部大开发需要资金和技术”是否为真？ (People do not know that the Western Development requires capital and technology, because the person in charge pointed out that fundamentally, knowledge and talent are needed more. → Is "the Western Development requires capital and technology" true?) *(Inference Result: Uncertain=6/10, True=4/10, Self-consistency Rate=60%)* 
 
-Comparative analysis of the two sentences in Example 2 reveals that only a minor perturbation of cognitive verbs and logical conjunctions (replacing “都知道” (know) with “不知道” (do not know), and “但是” (but) with “因为” (because)) is enough to induce a drastic decrease in the consistency of the large model's factual judgment of the target clause “西部大开发需要资金和技术” (the Western Development requires capital and technology) (from 100% to 60%). This instability in judgment will cause a severe reliability crisis in actual deployment—if the same agent is highly unstable in its multiple inference judgments of the same fact when faced with identical or highly similar questions, the system output will become untrustworthy, which will result in its inability to be competent for downstream applications with high fault tolerance costs, such as judicial fact extraction, medical record mining, and educational assistance (Wang et al., 2022; Ji et al., 2023).
+Comparative analysis of the two sentences in Example 2 reveals that only a minor perturbation of cognitive verbs and logical conjunctions (replacing “都知道” (know) with “不知道” (do not know), and “但是” (but) with “因为” (because)) is enough to induce a drastic decrease in the consistency of the large model's factual judgment of the target clause “西部大开发需要资金和技术” (the Western Development requires capital and technology). This instability in judgment will cause a severe reliability crisis in actual deployment—if the same agent is highly unstable in its multiple inference judgments of the same fact when faced with identical or highly similar questions, the system output will become untrustworthy, which will result in its inability to be competent for downstream applications with high fault tolerance costs, such as judicial fact extraction, medical record mining, and educational assistance.
 
 Therefore, this evaluation task adopts a Red Teaming attack mode, aiming to systematically investigate and expose the feature boundaries and fragile scenarios of current large models in complex factivity inference tasks. Participating teams are required to creatively adapt the original corpus based on the Chinese factivity inference dataset provided by the organizers, under specified large models, prompt words, and other environmental configurations. The goal is to mine key text features that can induce large models to generate "hallucinations" or lead to a collapse in consistency, thereby providing a scientific basis for evaluating and improving the logical robustness of models in complex language interactions.
 
 
 # Dataset and Usage Instructions 
 
-## Data Scale and Source
-The foundational corpus for this evaluation is provided by the team from the University of Macau. The corpus is primarily filtered from relevant Chinese corpora and has been manually annotated and proofread by the evaluation organizers. The evaluation set is expected to contain 1,000 data items, covering approximately 300 Chinese factive predicates. The dataset used for the evaluation is published in JSON format, serving as the basis for text adaptation by participating teams. Since the evaluation mode is a red teaming attack, it is not divided into training, validation, and test sets.
+The corpus is primarily filtered from relevant Chinese corpora and has been manually annotated and proofread by the evaluation organizers. The evaluation set is expected to contain 1,000 data items, covering approximately 300 Chinese factive predicates. The dataset used for the evaluation is published in JSON format, serving as the basis for text adaptation by participating teams. Since the evaluation mode is a red teaming attack, it is not divided into training, validation, and test sets.
 
 ## Test Set Data Example
 ```json
@@ -59,7 +58,11 @@ The foundational corpus for this evaluation is provided by the team from the Uni
 * **`predicate`**: Refers to the factive predicate, which is the core linguistic component for factivity inference. Most predicates are verbs, while a few are adjectives. During attack testing, modifying the content of this field within the `text` is prohibited.
 * **`text_original`**: Entailing sentence. This field provides the context required for inference, and the model needs to rely on the content of this field to judge the truth value of the `hypothesis` field.
 * **`hypothesis`**: Entailed sentence. This field provides the discriminative sentence required for factivity inference, and the model needs to use the content of the "text" field to judge the truth value of this field. During attack testing, modifying the content of this field within the `text` is prohibited.
-* **`option`**: This field reflects the possible answer situations of the model and contains 4 keys. "T" indicates that according to the background sentence, the conclusion sentence is true. "F" indicates that according to the background sentence, the conclusion sentence is false. "U" indicates that according to the background sentence, the truth value of the conclusion sentence cannot be determined. "R" indicates that the model refuses to answer.
+* **`option`**: This field reflects the possible answer situations of the model and contains 4 keys. The result returned by the model should be a single letter, and only one value is permitted:
+  * If the `hypothesis` is judged to be true based on the `text`, it must output "T".
+  * If the `hypothesis` is judged to be false based on the `text`, it must output "F".
+  * If the truth or falsity of the `hypothesis` cannot be determined based on the `text`, it must output "U".
+  * If the model refuses to answer, or if the returned text does not meet the above answer specifications, the output will be forcibly marked as "R". This is an invalid answer and is not included in the final consistency rate calculation. Teams should avoid this situation during adaptation and testing.
 
 ## Attack Methods
 
@@ -90,7 +93,7 @@ Selecting the Qwen and DeepSeek series as test baselines is primarily based on t
 2.  They represent two mainstream and distinctly different technological routes in the current evolution of large models, possessing strong sample representativeness.
 3.  They both provide open-source weight versions, offering an academically friendly open-source ecosystem and white-box replication potential.
 
-### (2) Prompt Template
+### (2) Prompt Template & Parameter Configuration (Updating)
 ```text
 根据“文本”的内容，判断“假设”的真值情况：
 文本：{text}
@@ -98,16 +101,7 @@ Selecting the Qwen and DeepSeek series as test baselines is primarily based on t
 只允许答复T/F/U（对应真/假/无法确定），禁止回复其他解释性内容。
 ```
 
-### (3) Parameter Configuration
 To restore the ecological validity of large models in practical applications, parameters such as Temperature are set to the official recommended or default values for each model series. Participating teams are not allowed to modify them.
-
-### (4) Model Output Processing
-The result returned by the model should be a single letter, and only one value is permitted:
-
-* If the hypothesis is judged to be true based on the text, it must output "T".
-* If the hypothesis is judged to be false based on the text, it must output "F".
-* If the truth or falsity of the hypothesis cannot be determined based on the text, it must output "U".
-* If the model refuses to answer, or if the returned text does not meet the above answer specifications, the output will be forcibly marked as "R". This is an invalid answer and is not included in the final consistency rate calculation. Teams should avoid this situation during adaptation and testing.
 
 ## Submission Requirements
 Participating teams must organize the adapted items to be submitted into a JSON format output file. Each data entry in the output file should contain four fields: id, text_attack, response_original, and response_attack. For example:
