@@ -134,7 +134,7 @@ A：简而言之，我们需要的改编句子要能使模型推理结果变得*
 | API 官网 | [Aliyun Bailian API Docs](https://bailian.console.aliyun.com/cn-beijing?spm=5176.12818093_47.overview_recent.1.e6402cc9lKf4ab&tab=api#/api) | [DeepSeek API Docs](https://api-docs.deepseek.com/zh-cn/) |
 
 > 注：API 价格可能随官方平台、部署区域、缓存命中情况或优惠活动变化而调整，实际费用以各官方平台的实时价格为准。在冲榜阶段，评测系统后台将分别通过上述的两个API官网进行模型调用测试；因此为保证测试环境的一致性，推荐参赛队伍考虑使用相同平台进行模型的调用测试。
-https://home.console.aliyun.com/home/dashboard/ProductAndService?accounttraceid=e549e7fde942427299622399ca7d40c6opce
+
 ### (2) 提示词与参数配置
 
 ```text
