@@ -81,14 +81,14 @@ The review will mainly consider the following aspects:
 
 1. **Attack performance**: the team’s final leaderboard performance in the corresponding track;
 2. **Dataset quality**: including the novelty, diversity, naturalness, and interpretability of the attack sample design, as well as its potential contribution to the computational linguistics community;
-3. **Value of phenomena identified**: including whether the report reveals meaningful linguistic phenomena, challenges in factuality inference, model inconsistency weaknesses, or other issues worthy of further investigation.
+3. **Value of phenomena identified**: including whether the report reveals meaningful linguistic phenomena, challenges in factivity inference, model inconsistency weaknesses, or other issues worthy of further investigation.
 
 Following the principle of quality over quantity, the organizers will, after comprehensive review, select up to three reports to be recommended to the NLPCC Academic Committee. The final number of officially accepted evaluation reports will be subject to approval by the NLPCC Academic Committee.
 
 The evaluation report format should follow the NLPCC main conference paper format: [NLPCC 2026 Calls](http://tcci.ccf.org.cn/conference/2026/calls/). The page limit may be moderately relaxed. The submission deadline is **July 17, 2026**. The submission portal for evaluation reports is: [NLPCC 2026 Shared Tasks OpenReview Submission](https://openreview.net/group?id=ccf.org/NLPCC/2026/Shared_Tasks). Teams intending to submit a technical report are advised to prepare their manuscripts as early as possible and complete the system submission before the deadline.
 
 
-## ❓ Q&A (Continuously Updated)
+## ❓ Q&A
 
 **Q1: Is the released dataset the official dataset to be used during the leaderboard competition stage, or is it only for practice?**  
 A: The released dataset, which contains 1,089 data items, is the only official dataset for this task. It is not a practice set. No additional test set will be released during the leaderboard competition stage; only the evaluation system backend and leaderboard entry will be opened at that time. At the current stage, participating teams may already use the official dataset to select samples, adapt texts, conduct self-testing, and rank their candidate samples.
