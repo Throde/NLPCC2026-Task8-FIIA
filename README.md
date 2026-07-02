@@ -12,6 +12,13 @@
 
 ## 📢 Updates
 
+### 2026-07-02
+1. [Arrangements for Evaluation Certificates and Technical Report Submission](#arrangements-for-evaluation-certificates-and-technical-report-submission) have been updated, and the submission system is now open. The deadline for evaluation report submission is **July 17, 2026**. Teams intending to submit a report are advised to complete manuscript preparation and system submission in a timely manner.
+
+### 2026-06-27
+1. The official data submission stage of this evaluation task has now concluded. The leaderboard results are available in [Evaluation Results](#evaluation-results) or on the [evaluation leaderboard website](http://124.221.19.182/).
+2. [Arrangements for Evaluation Certificates and Technical Report Submission](#arrangements-for-evaluation-certificates-and-technical-report-submission) have been announced. Relevant participating teams are advised to pay attention to the technical report preparation requirements and subsequent submission notifications.
+
 ### 2026-04-30
 1. The Sample Validity Check tool is now available: Participating teams may access the [evaluation tool page](http://124.221.19.182/) and use the “Sample Validity Check” function to upload their adapted JSON files at any time. The system will check the validity of each attack sample according to the R1–R5 rules, serving as a pre-submission validity check for compliance with the required format and rules.
 2. The [Evaluation Metric](#evaluation-metric) has been updated.
@@ -21,6 +28,64 @@
 1. The official dataset has been released in the `dataset` directory.
 2. The [Available Tracks and Model Scope](#evaluation-operations-and-specifications) has been updated.
 3. The [Attack Sample Validity Check](#attack-sample-validity-check) rules have been updated. The corresponding self-check script has been released in the `validate` directory.
+
+
+## 🏆 Evaluation Results
+
+The official data submission stage of this evaluation task has now concluded. The leaderboard results are available on the [evaluation leaderboard website](http://124.221.19.182/).
+
+### Final Leaderboard of the Qwen Track
+
+| Rank | Team Name | AttackScore | Valid Attacks | Date Achieved |
+|---:|---|---:|---:|---|
+| 1 | FActProbe | 78.700 | 200 | 2026-06-16 |
+| 2 | ZZUNLP | 67.900 | 200 | 2026-06-19 |
+| 3 | NanceTide | 10.000 | 200 | 2026-06-19 |
+| 4 | selnb | 8.600 | 200 | 2026-06-12 |
+| 5 | ZZUNLP_Han | 6.300 | 200 | 2026-06-11 |
+| 6 | 希望都队 | 6.300 | 200 | 2026-06-12 |
+| 7 | victory | 3.700 | 191 | 2026-06-11 |
+| 8 | ChaosFinder | 0.900 | 30 | 2026-06-11 |
+
+### Final Leaderboard of the DeepSeek Track
+
+| Rank | Team Name | AttackScore | Valid Attacks | Date Achieved |
+|---:|---|---:|---:|---|
+| 1 | ZZUNLP | 85.200 | 200 | 2026-06-18 |
+| 2 | NanceTide | 74.200 | 200 | 2026-06-20 |
+| 3 | selnb | 66.700 | 200 | 2026-06-12 |
+| 4 | 希望都队 | 64.700 | 200 | 2026-06-16 |
+| 5 | victory | 25.200 | 191 | 2026-06-11 |
+| 6 | ZZUNLP_Han | 24.700 | 200 | 2026-06-12 |
+| 7 | ChaosFinder | 8.000 | 200 | 2026-06-11 |
+
+
+## 📄 Arrangements for Evaluation Certificates and Technical Report Submission
+
+### I. Evaluation Certificates
+
+According to the final leaderboard results of the two tracks in this evaluation task, the top-ranked team in each track will receive an evaluation certificate issued by the conference. The certificate recipients are as follows:
+
+| Track | Certificate Recipient | Team Leader Email |
+|---|---|---|
+| Qwen Track | FActProbe | pengyiyang660@163.com |
+| DeepSeek Track | ZZUNLP | 1003773658@qq.com |
+
+### II. Technical Report Submission and Selection
+
+According to the arrangement of the conference organizing committee, this evaluation task has been allocated three invited evaluation report slots. Evaluation reports are intended to present participating work with strong methodological innovation, dataset construction value, and model analysis value. Therefore, the organizers will not use the final leaderboard score as the sole criterion. Instead, we will comprehensively consider each team’s attack score, the quality of the submitted dataset, and the value of the phenomena identified.
+
+In principle, the three teams with the highest overall leaderboard rankings, namely ZZUNLP, FActProbe, and NanceTide, are expected to submit evaluation reports. Meanwhile, other participating teams are also welcome to voluntarily submit technical reports. The organizers will conduct a comprehensive review of all submitted technical reports.
+
+The review will mainly consider the following aspects:
+
+1. **Attack performance**: the team’s final leaderboard performance in the corresponding track;
+2. **Dataset quality**: including the novelty, diversity, naturalness, and interpretability of the attack sample design, as well as its potential contribution to the computational linguistics community;
+3. **Value of phenomena identified**: including whether the report reveals meaningful linguistic phenomena, challenges in factuality inference, model inconsistency weaknesses, or other issues worthy of further investigation.
+
+Following the principle of quality over quantity, the organizers will, after comprehensive review, select up to three reports to be recommended to the NLPCC Academic Committee. The final number of officially accepted evaluation reports will be subject to approval by the NLPCC Academic Committee.
+
+The evaluation report format should follow the NLPCC main conference paper format: [NLPCC 2026 Calls](http://tcci.ccf.org.cn/conference/2026/calls/). The page limit may be moderately relaxed. The submission deadline is **July 17, 2026**. The submission portal for evaluation reports is: [NLPCC 2026 Shared Tasks OpenReview Submission](https://openreview.net/group?id=ccf.org/NLPCC/2026/Shared_Tasks). Teams intending to submit a technical report are advised to prepare their manuscripts as early as possible and complete the system submission before the deadline.
 
 
 ## ❓ Q&A (Continuously Updated)
