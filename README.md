@@ -14,25 +14,22 @@
 
 ### 2026-09-14
 
-1. **The FIIA attack-corpus and analysis resources have been publicly released.** We release six curated, higher-scoring team-track submission corpora selected using a final-score threshold of 60 points. These corpora contain **1,200 submitted attack instances**, corresponding to **1,190 unique attack texts** after exact-text deduplication. The release also includes a linguistically motivated **17-category semantic taxonomy**, model-assisted multi-label annotations with adjudicated final labels, repeated-query results for Qwen and DeepSeek, item-level MIR scores, and provenance mappings between the original submissions and the deduplicated attack corpus. These resources may support further research on response consistency evaluation, Chinese factivity inference, adversarial language modification, linguistic strategy analysis, and cross-model behavioral comparison. The released resources are available in the [`submissions`](submissions/) directory:
+1. **The FIIA attack-corpus and analysis resources have been publicly released.** We release six curated, higher-scoring team-track submission corpora selected using a final-score threshold of 60 points. These corpora contain **1,200 submitted attack instances**, corresponding to **1,190 unique attack texts** after exact-text deduplication. The release also includes a linguistically motivated **17-category semantic taxonomy**, model-assisted multi-label annotations, repeated-query results for Qwen and DeepSeek, and item-level MIR scores, provenance mappings . These resources may support further research on response consistency evaluation, Chinese factivity inference, adversarial language modification, linguistic strategy analysis, and cross-model behavioral comparison. The released resources are available in the [`submissions`](submissions/) directory:
    - [Selected attack submissions](submissions/)
-   - [Semantic taxonomy and annotations](submissions/annotations/)
-   - [Repeated-query and MIR evaluation results](submissions/evaluation_results/)
-   - [Corpus metadata and provenance mappings](submissions/metadata/)
-2. Researchers using these resources are requested to cite the FIIA shared-task overview paper. Please follow the applicable repository license and data-use terms.
+   - [Metadata: Provenance mappings between the original submissions and the deduplicated attack corpus](submissions/metadata/)
+   - [Annotations: Semantic taxonomy and LLM-as-a-judge annotations](submissions/annotations/)
+   - [Evaluation results: Repeated-query and MIR evaluation results](submissions/evaluation_results/)
+2. Researchers using these resources should cite the FIIA shared-task overview paper:
 
-#### Citation
-
-**APA style (provisional; page numbers and DOI will be added after the official proceedings are published):**
-
-> Liu, D., Su, J., Cong, G., Wu, J., Wang, Y., Yuan, Y., Li, B., & Tang, X. (in press). Overview of the NLPCC 2026 Shared Task 8: Factivity Inference Inconsistency Attack. In *Proceedings of the 15th CCF International Conference on Natural Language Processing and Chinese Computing (NLPCC 2026)*. Springer.
+> (Provisional, APA Style)
+> Liu, D., Su, J., Cong, G., Wu, J., Wang, Y., Yuan, Y., Li, B., & Tang, X. (2026). Overview of the NLPCC 2026 Shared Task 8: Factivity Inference Inconsistency Attack. In *Proceedings of the 15th CCF International Conference on Natural Language Processing and Chinese Computing (NLPCC 2026)*. Springer.
 
 ### 2026-07-02
-1. [Arrangements for Evaluation Certificates and Technical Report Submission](#arrangements-for-evaluation-certificates-and-technical-report-submission) have been updated, and the submission system is now open. The deadline for evaluation report submission is **July 17, 2026**. Teams intending to submit a report are advised to complete manuscript preparation and system submission in a timely manner.
+1. The submission system is now open. The submission portal for evaluation reports is: [NLPCC 2026 Shared Tasks OpenReview Submission](https://openreview.net/group?id=ccf.org/NLPCC/2026/Shared_Tasks). Teams intending to submit a technical report are advised to prepare their manuscripts as early as possible and complete the system submission before the deadline. The deadline for evaluation report submission is **July 17, 2026**. 
 
 ### 2026-06-27
 1. The official data submission stage of this evaluation task has now concluded. The leaderboard results are available in [Evaluation Results](#evaluation-results) or on the [evaluation leaderboard website](http://124.221.19.182/).
-2. [Arrangements for Evaluation Certificates and Technical Report Submission](#arrangements-for-evaluation-certificates-and-technical-report-submission) have been announced. Relevant participating teams are advised to pay attention to the technical report preparation requirements and subsequent submission notifications.
+2. Arrangements for evaluation certificates and technical report submission have been announced. Relevant participating teams are advised to pay attention to the technical report preparation requirements and subsequent submission notifications. The three teams with the highest overall leaderboard rankings, namely ZZUNLP, FActProbe, and NanceTide, are expected to submit evaluation reports. The evaluation report format should follow the NLPCC main conference paper format: [NLPCC 2026 Calls](http://tcci.ccf.org.cn/conference/2026/calls/). The page limit may be moderately relaxed.
 
 ### 2026-04-30
 1. The Sample Validity Check tool is now available: Participating teams may access the [evaluation tool page](http://124.221.19.182/) and use the “Sample Validity Check” function to upload their adapted JSON files at any time. The system will check the validity of each attack sample according to the R1–R5 rules, serving as a pre-submission validity check for compliance with the required format and rules.
@@ -75,34 +72,6 @@ The official data submission stage of this evaluation task has now concluded. Th
 | 7 | ChaosFinder | 8.000 | 200 | 2026-06-11 |
 
 
-## 📄 Arrangements for Evaluation Certificates and Technical Report Submission
-
-### I. Evaluation Certificates
-
-According to the final leaderboard results of the two tracks in this evaluation task, the top-ranked team in each track will receive an evaluation certificate issued by the conference. The certificate recipients are as follows:
-
-| Track | Certificate Recipient | Team Leader Email |
-|---|---|---|
-| Qwen Track | FActProbe | pengyiyang660@163.com |
-| DeepSeek Track | ZZUNLP | 1003773658@qq.com |
-
-### II. Technical Report Submission and Selection
-
-According to the arrangement of the conference organizing committee, this evaluation task has been allocated three invited evaluation report slots. Evaluation reports are intended to present participating work with strong methodological innovation, dataset construction value, and model analysis value. Therefore, the organizers will not use the final leaderboard score as the sole criterion. Instead, we will comprehensively consider each team’s attack score, the quality of the submitted dataset, and the value of the phenomena identified.
-
-In principle, the three teams with the highest overall leaderboard rankings, namely ZZUNLP, FActProbe, and NanceTide, are expected to submit evaluation reports. Meanwhile, other participating teams are also welcome to voluntarily submit technical reports. The organizers will conduct a comprehensive review of all submitted technical reports.
-
-The review will mainly consider the following aspects:
-
-1. **Attack performance**: the team’s final leaderboard performance in the corresponding track;
-2. **Dataset quality**: including the novelty, diversity, naturalness, and interpretability of the attack sample design, as well as its potential contribution to the computational linguistics community;
-3. **Value of phenomena identified**: including whether the report reveals meaningful linguistic phenomena, challenges in factivity inference, model inconsistency weaknesses, or other issues worthy of further investigation.
-
-Following the principle of quality over quantity, the organizers will, after comprehensive review, select up to three reports to be recommended to the NLPCC Academic Committee. The final number of officially accepted evaluation reports will be subject to approval by the NLPCC Academic Committee.
-
-The evaluation report format should follow the NLPCC main conference paper format: [NLPCC 2026 Calls](http://tcci.ccf.org.cn/conference/2026/calls/). The page limit may be moderately relaxed. The submission deadline is **July 17, 2026**. The submission portal for evaluation reports is: [NLPCC 2026 Shared Tasks OpenReview Submission](https://openreview.net/group?id=ccf.org/NLPCC/2026/Shared_Tasks). Teams intending to submit a technical report are advised to prepare their manuscripts as early as possible and complete the system submission before the deadline.
-
-
 ## ❓ Q&A
 
 **Q1: Is the released dataset the official dataset to be used during the leaderboard competition stage, or is it only for practice?**  
@@ -133,6 +102,7 @@ For modified sentence A1, although the model's judgment changes, its consistency
 Participants may register through either of the following channels:
 1. Submit the online registration form: https://alidocs.dingtalk.com/notable/share/form/v012M9qP5j5D8A1JO01_FSwM4Z8_xbMCeFp
 2. Or complete the registration document (FIIA-Registration Form.docx) and submit it via email to liudh@hust.edu.cn.
+
 
 # Task Introduction
 
