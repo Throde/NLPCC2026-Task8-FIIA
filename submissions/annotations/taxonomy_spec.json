@@ -1,0 +1,122 @@
+{
+  "name": "FIIA Linguistically Grounded Contrastive Strategy Taxonomy",
+  "version": "1.0",
+  "unit": "A normalized unique text_attack compared with its official text_original and hypothesis",
+  "principles": [
+    "Multi-label annotation: one rewrite may instantiate several mechanisms.",
+    "Contrastive evidence: labels are assigned from additions, deletions, substitutions, relocations, or changed structural functions relative to the source, not from words already present unchanged.",
+    "Linguistic function over surface form: the same expression may receive different labels depending on scope and discourse function.",
+    "Protected-core awareness: edits are interpreted relative to the factivity predicate and embedded hypothesis.",
+    "Uncertain cases are retained with explicit review flags rather than forced into a substantive category."
+  ],
+  "categories": [
+    {
+      "code": "NEG_POLARITY",
+      "name": "Negation and polarity restructuring",
+      "definition": "Addition, deletion, replacement, or scope relocation of negation that changes the polarity of the predicate, embedded proposition, or relevant contextual claim.",
+      "include": ["不/没/未/无/并非/不是/未能", "removal of an original negator", "double-negation or polarity reversal"],
+      "exclude": ["未必 and 不一定 when used only as epistemic weakening; these receive EPI_MODAL unless a direct polarity contrast is also created"]
+    },
+    {
+      "code": "EPI_MODAL",
+      "name": "Epistemic modalization and uncertainty",
+      "definition": "Weakening, suspending, or probabilizing commitment to a proposition or perceptual/cognitive event.",
+      "include": ["可能/或许/似乎/大概/也许/未必/不一定", "存疑/尚难定论/有待核实", "涉嫌/据推测 when functioning as uncertainty"],
+      "exclude": ["pure source attribution without weakened commitment, which receives EVI_SOURCE"]
+    },
+    {
+      "code": "EVI_SOURCE",
+      "name": "Evidential and source distancing",
+      "definition": "Introduction or modification of hearsay, report, quotation source, evidential access, or indirect attribution that distances the current narrator from the proposition.",
+      "include": ["据称/据说/听说/有报道称/消息称", "有人转述/外界认为", "reported or allegedly framed content"]
+    },
+    {
+      "code": "CTR_REFUTATION",
+      "name": "Counterevidence, correction, and explicit refutation",
+      "definition": "Insertion of a later correction, opposing report, denied conclusion, conflicting evidence, or explicit statement that the relevant claim is false or reversed.",
+      "include": ["复核材料否认", "后称不实", "说法相反", "证据显示并非如此", "材料甲与材料乙冲突"],
+      "exclude": ["a bare adversative connective without counterevidence, which receives DSC_RELATION"]
+    },
+    {
+      "code": "DSC_RELATION",
+      "name": "Discourse-relation reframing",
+      "definition": "Addition, deletion, or replacement of connectives or clause relations that changes contrast, concession, cause, condition, consequence, or rhetorical organization.",
+      "include": ["但/然而/不过/虽然/尽管/却/反而", "因为/所以/即使/另一方面", "changed causal or concessive attachment"]
+    },
+    {
+      "code": "QUA_SCOPE",
+      "name": "Quantification and scope manipulation",
+      "definition": "Change to universal, existential, proportional, exclusivity, or distributive force, including the scope of negation over a quantifier.",
+      "include": ["都/全/所有/任何/部分/有些", "只/仅", "并非所有/不都/并非没有"]
+    },
+    {
+      "code": "DEG_FOCUS",
+      "name": "Degree, focus, and scalar qualification",
+      "definition": "Modification of degree, completeness, approximation, focus, or exception structure without necessarily changing quantificational domain.",
+      "include": ["完全/真正/明显/大致/大约/某种程度", "只是/尤其/至少/几乎", "部分属实 or not entirely"]
+    },
+    {
+      "code": "TMP_ASPECT",
+      "name": "Temporal and aspectual reframing",
+      "definition": "Change to tense-like temporal location, aspect, phase, persistence, completion, iteration, or temporal anchoring.",
+      "include": ["曾/已/已经/尚未/正在/仍/一直/将/后来/一度", "了/着/过 when the edit changes event viewpoint", "stage-specific or provisional temporal framing"]
+    },
+    {
+      "code": "HYP_WORLD",
+      "name": "Conditional, hypothetical, and alternative-world framing",
+      "definition": "Embedding the target content under a condition, supposition, counterfactual, possibility space, question, or explicitly alternative scenario.",
+      "include": ["如果/若/假如/即便", "是否/吗/难道", "另一种可能是"]
+    },
+    {
+      "code": "STA_POLYPHONY",
+      "name": "Stance, quotation, and polyphonic framing",
+      "definition": "Reassignment of a proposition to another voice, perspective, quoted record, personal judgment, or explicitly layered discourse source.",
+      "include": ["个人看法/单方面宣称/只是某人的判断", "旧稿记载/新版旁注", "quotation or attributed stance frame"],
+      "exclude": ["simple hearsay markers without voice contrast may receive only EVI_SOURCE"]
+    },
+    {
+      "code": "PRG_REINTERPRET",
+      "name": "Pragmatic or non-literal reinterpretation",
+      "definition": "Instruction or contextual cue that reinterprets the target utterance as irony, metaphor, pretense, misunderstanding, subjective impression, or non-literal language.",
+      "include": ["反讽/讽刺/比喻/字面理解", "错觉/误会/假装/主观感受", "语境反转 or non-literal reading"]
+    },
+    {
+      "code": "MET_TRUTH_STATUS",
+      "name": "Metalinguistic truth-status commentary",
+      "definition": "Insertion of commentary about verification, truth labels, answer disagreement, adjudication, record status, or the reliability of a statement as an object of evaluation.",
+      "include": ["真假未定/真、假、未定之间未统一", "复评意见/核验结论/是否属实", "T/F/U or answer-oriented language"],
+      "exclude": ["ordinary counterevidence without evaluation-language receives CTR_REFUTATION"]
+    },
+    {
+      "code": "CTX_DELETION",
+      "name": "Context deletion or background suppression",
+      "definition": "Removal of a clause, evidential premise, temporal/causal background, or other substantial context that changes the interpretive environment while retaining the protected core.",
+      "include": ["deletion of a clause or sentence", "deletion exceeding 15% of source length when semantically substantive", "removal of causal/evidential background"],
+      "exclude": ["isolated particles or punctuation with no contextual effect"]
+    },
+    {
+      "code": "SYN_RESTRUCTURE",
+      "name": "Syntactic and argument-structure restructuring",
+      "definition": "Reordering, reattachment, voice/person change, complement restructuring, or morphosyntactic alteration not adequately represented by temporal, polarity, or scope labels.",
+      "include": ["active/passive alternation", "changed subject or perspective holder", "clause movement or reattachment", "complementizer or argument-structure change"]
+    },
+    {
+      "code": "LEX_REFRAME",
+      "name": "Lexical-semantic reframing",
+      "definition": "Substitution or insertion of content-bearing lexical material that changes event characterization, evaluation, or semantic relation without primarily operating through another category.",
+      "include": ["涉嫌/号称/所谓 when used as lexical recategorization", "content-word substitution", "added evaluative characterization"]
+    },
+    {
+      "code": "REF_PERSPECTIVE",
+      "name": "Reference and perspective shift",
+      "definition": "Change in person, pronoun, deictic center, experiencer, source holder, or referential anchoring that changes whose commitment or perception is represented.",
+      "include": ["speaker-to-other shift", "added experiencer or observer", "pronoun/deictic reassignment"]
+    },
+    {
+      "code": "OTH_UNCLEAR",
+      "name": "Other or analytically unclear modification",
+      "definition": "A real edit is present but its linguistic function is not reliably assignable to the substantive categories above.",
+      "include": ["punctuation-only edit", "uninterpretable local corruption", "ambiguous micro-edit requiring human adjudication"]
+    }
+  ]
+}
