@@ -120,7 +120,7 @@ Comparative analysis of the two sentences in Example 2 reveals that only a minor
 Therefore, focusing on the consistency issue, this task adopts a Red Teaming attack mode for evaluation. Participating teams are required to creatively adapt the original corpus based on the Chinese factivity inference dataset provided by the organizers, under specified large models, prompts, and other environmental configurations. The goal is to mine as many text features as possible that cause a collapse in the large model's consistency during factivity inference, thereby providing a scientific basis for evaluating and improving the robustness of large models in complex language interaction scenarios.
 
 
-# Dataset and Usage Instructions 
+# Source Dataset
 
 The corpus is primarily filtered from relevant Chinese corpora and has been manually annotated and proofread by the evaluation organizers. The evaluation set contains 1,089 data items, covering approximately 70 Chinese factive predicates. The dataset used for the evaluation is published in JSON format, serving as the basis for text adaptation by participating teams.
 
