@@ -12,6 +12,21 @@
 
 ## 📢 Updates
 
+### 2026-09-14
+
+1. **The FIIA attack-corpus and analysis resources have been publicly released.** We release six curated, higher-scoring team-track submission corpora selected using a final-score threshold of 60 points. These corpora contain **1,200 submitted attack instances**, corresponding to **1,190 unique attack texts** after exact-text deduplication. The release also includes a linguistically motivated **17-category semantic taxonomy**, model-assisted multi-label annotations with adjudicated final labels, repeated-query results for Qwen and DeepSeek, item-level MIR scores, and provenance mappings between the original submissions and the deduplicated attack corpus. These resources may support further research on response consistency evaluation, Chinese factivity inference, adversarial language modification, linguistic strategy analysis, and cross-model behavioral comparison. The released resources are available in the [`submissions`](submissions/) directory:
+   - [Selected attack submissions](submissions/)
+   - [Semantic taxonomy and annotations](submissions/annotations/)
+   - [Repeated-query and MIR evaluation results](submissions/evaluation_results/)
+   - [Corpus metadata and provenance mappings](submissions/metadata/)
+2. Researchers using these resources are requested to cite the FIIA shared-task overview paper. Please follow the applicable repository license and data-use terms.
+
+#### Citation
+
+**APA style (provisional; page numbers and DOI will be added after the official proceedings are published):**
+
+> Liu, D., Su, J., Cong, G., Wu, J., Wang, Y., Yuan, Y., Li, B., & Tang, X. (in press). Overview of the NLPCC 2026 Shared Task 8: Factivity Inference Inconsistency Attack. In *Proceedings of the 15th CCF International Conference on Natural Language Processing and Chinese Computing (NLPCC 2026)*. Springer.
+
 ### 2026-07-02
 1. [Arrangements for Evaluation Certificates and Technical Report Submission](#arrangements-for-evaluation-certificates-and-technical-report-submission) have been updated, and the submission system is now open. The deadline for evaluation report submission is **July 17, 2026**. Teams intending to submit a report are advised to complete manuscript preparation and system submission in a timely manner.
 
