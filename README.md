@@ -14,12 +14,12 @@
 
 ### 2026-09-14
 
-1. **The FIIA attack-corpus and analysis resources have been publicly released.** We release six curated, higher-scoring team-track submission corpora selected using a final-score threshold of 60 points. These corpora contain **1,200 submitted attack instances**, corresponding to **1,190 unique attack texts** after exact-text deduplication. The release also includes a linguistically motivated **17-category semantic taxonomy**, model-assisted multi-label annotations, repeated-query results for Qwen and DeepSeek, and item-level MIR scores. These resources may support further research on response consistency evaluation, Chinese factivity inference, adversarial language modification, linguistic strategy analysis, and cross-model behavioral comparison. The released resources are available in the [`submissions`](submissions/) directory:
+1. **The participant-submitted FIIA attack corpora and associated analysis resources have been publicly released.** We release six curated, higher-scoring team-track submission corpora selected using a final-score threshold of 60 points. These corpora contain **1,200 submitted attack instances**, corresponding to **1,190 unique attack texts** after exact-text deduplication. The release also includes a linguistically motivated **17-category semantic taxonomy**, model-assisted multi-label annotations, repeated-query results for Qwen and DeepSeek, and item-level MIR scores. These resources may support further research on response consistency evaluation, Chinese factivity inference, adversarial language modification, linguistic strategy analysis, and cross-model behavioral comparison. The released resources are available in the [`submissions`](submissions/) directory:
    - [Selected attack submissions](submissions/)
    - [Metadata: Provenance mappings between the original submissions and the deduplicated attack corpus](submissions/metadata/)
    - [Annotations: Semantic taxonomy and LLM-as-a-judge annotations](submissions/annotations/)
    - [Evaluation results: Repeated-query and MIR evaluation results](submissions/evaluation_results/)
-2. Researchers using these resources should cite the FIIA shared-task overview paper:
+2. Researchers who wish to examine the submitted attack data and the associated annotation and evaluation results, or to use these resources in subsequent analyses, should cite the FIIA shared-task overview paper:
 
 > Liu, D., Su, J., Cong, G., Wu, J., Wang, Y., Yuan, Y., Li, B., & Tang, X. (2026). Overview of the NLPCC 2026 Shared Task 8: Factivity Inference Inconsistency Attack. In *Proceedings of the 15th CCF International Conference on Natural Language Processing and Chinese Computing (NLPCC 2026)*. Springer.
 
