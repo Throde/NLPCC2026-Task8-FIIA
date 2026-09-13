@@ -22,8 +22,6 @@
    - [评估结果：重复调用结果与MIR评估数据](submissions/evaluation_results/)
 2. 使用上述资源开展研究时，请引用FIIA共享任务综述论文：
 
-> **APA格式**
->
 > Liu, D., Su, J., Cong, G., Wu, J., Wang, Y., Yuan, Y., Li, B., & Tang, X. (2026). Overview of the NLPCC 2026 Shared Task 8: Factivity Inference Inconsistency Attack. In *Proceedings of the 15th CCF International Conference on Natural Language Processing and Chinese Computing (NLPCC 2026)*. Springer.
 
 ### 2026-07-02
