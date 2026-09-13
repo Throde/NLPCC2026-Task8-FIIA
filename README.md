@@ -21,8 +21,7 @@
    - [Evaluation results: Repeated-query and MIR evaluation results](submissions/evaluation_results/)
 2. Researchers using these resources should cite the FIIA shared-task overview paper:
 
-> (Provisional, APA Style)
-> Liu, D., Su, J., Cong, G., Wu, J., Wang, Y., Yuan, Y., Li, B., & Tang, X. (2026). Overview of the NLPCC 2026 Shared Task 8: Factivity Inference Inconsistency Attack. In *Proceedings of the 15th CCF International Conference on Natural Language Processing and Chinese Computing (NLPCC 2026)*. Springer.
+> (APA Style) Liu, D., Su, J., Cong, G., Wu, J., Wang, Y., Yuan, Y., Li, B., & Tang, X. (2026). Overview of the NLPCC 2026 Shared Task 8: Factivity Inference Inconsistency Attack. In *Proceedings of the 15th CCF International Conference on Natural Language Processing and Chinese Computing (NLPCC 2026)*. Springer.
 
 ### 2026-07-02
 1. The submission system is now open. The submission portal for evaluation reports is: [NLPCC 2026 Shared Tasks OpenReview Submission](https://openreview.net/group?id=ccf.org/NLPCC/2026/Shared_Tasks). Teams intending to submit a technical report are advised to prepare their manuscripts as early as possible and complete the system submission before the deadline. The deadline for evaluation report submission is **July 17, 2026**. 
