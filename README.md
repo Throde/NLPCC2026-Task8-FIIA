@@ -296,10 +296,9 @@ Since the maximum score for a single item is 0.6 and at most 200 valid attack sa
 Please refer to http://tcci.ccf.org.cn/conference/2026/ for the official conference timeline.
 
 
-# Awards & Conference Support (Updating)
+# Awards & Conference Support
 
 * **NLPCC & CCF-NLP Certification**: The top 1 participating team of each track will be certified by NLPCC and CCF-NLP.
-* **Cash Prize**: Pending.
 
 
 # Organizer & Contact
